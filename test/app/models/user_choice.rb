@@ -1,2 +1,0 @@
-class UserChoice < ApplicationRecord
-end
