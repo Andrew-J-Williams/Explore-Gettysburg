@@ -6,7 +6,8 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :date
       t.string :union_leader
       t.string :confederate_leader
-      t.integer 
+      t.integer :union_army
+      t.integer :confederate_army
 
       t.timestamps
     end
