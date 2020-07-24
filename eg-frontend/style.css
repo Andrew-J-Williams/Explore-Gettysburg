@@ -3,17 +3,44 @@ body {
     display: inline;
 }
 
+.flag-logo {
+    display: block;
+    position: relative;
+    max-width: 110px;
+    max-height: 110px;
+    height: auto;
+    width: auto;
+    top: 18px;
+    left: 25px;
+    box-shadow: 1px 1px 5px #c7c7c7;
+}
+
 .main-title {
     font-family: Didot; 
-    color: #272623;
+    color: #084572;
+    display: inline-block;
     position: relative;
-    left: 20px;
+    left: 150px;
+    top: -70px;
+    text-shadow: 1px 1px 1px #c7c7c7;
+}
+
+.sub-title {
+    font-family: Didot; 
+    color: #084572;
+    display: inline-block;
+    position: relative;
+    right: 140px;
+    top: -45px;
+    text-shadow: 1px 1px 1px #c7c7c7;
 }
 
 .borderline {
     height: 5px;
+    position: relative;
     background-color: #0a2e52;
     width: 100%;
+    top: -40px;
 }
 
 .map-of-gettysburg {
