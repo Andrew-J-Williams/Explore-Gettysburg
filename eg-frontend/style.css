@@ -3,13 +3,28 @@ body {
     display: inline;
 }
 
+.map-container{
+    background-color: linen;
+    padding-top: 30px;
+    position: relative;
+    top: -670px;
+    bottom: 0px;
+    height: 600px;
+    width: 100%;
+}
+
+.eagle-shield {
+    position: relative;
+    opacity: 20%;
+    left: 770px;
+    top: -330px
+}
+
 .flag-logo {
     display: block;
     position: relative;
     max-width: 110px;
     max-height: 110px;
-    height: auto;
-    width: auto;
     top: 18px;
     left: 25px;
     box-shadow: 1px 1px 5px #c7c7c7;
@@ -22,7 +37,6 @@ body {
     position: relative;
     left: 150px;
     top: -70px;
-    text-shadow: 1px 1px 1px #c7c7c7;
 }
 
 .sub-title {
@@ -32,7 +46,6 @@ body {
     position: relative;
     right: 140px;
     top: -45px;
-    text-shadow: 1px 1px 1px #c7c7c7;
 }
 
 .borderline {
@@ -40,18 +53,16 @@ body {
     position: relative;
     background-color: #0a2e52;
     width: 100%;
-    top: -40px;
+    top: -670px;
 }
 
 .map-of-gettysburg {
     display: block;
     position: relative;
     top: 20px;
-    left: 20px;
+    left: 40px;
     max-width:1200px;
     max-height:1200px;
-    width: auto;
-    height: auto;
     box-shadow: 1px 1px 5px #c7c7c7;
 }
 
@@ -64,3 +75,20 @@ body {
     height: 400px;
     box-shadow: 1px 1px 5px #c7c7c7;
 }
+
+.marker1 {
+    position: relative;
+    max-width: 50px;
+    max-height: 50px;
+    top: -900px;
+    left: 500px;
+    transition: 0.3s;
+}
+
+.marker1:hover {
+    max-width: 70px;
+    max-height: 70px;
+    top: -910px;
+    left: 490px;
+    transition: 0.3s;
+} 
