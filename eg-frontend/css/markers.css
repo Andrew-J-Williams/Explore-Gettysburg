@@ -1,0 +1,60 @@
+.markers {
+    position: relative;
+}
+
+
+.markers img{
+    max-width: 50px;
+    max-height: 50px;
+    transition: 0.3s;
+}
+
+.markers img:hover {
+    cursor: pointer;
+    max-width: 70px;
+    max-height: 70px;
+    transition: 0.3s;
+}
+
+
+#red-marker1 {
+    display: block;
+    position: absolute;
+    top: -300px;
+    left: 400px;
+}
+
+#red-marker1:hover {
+    display: block;
+    position: absolute;
+    top: -310px;
+    left: 390px;
+}
+
+#blue-marker1 {
+    display: block;
+    position: absolute;
+    top: -900px;
+    left: 500px;
+}
+
+#blue-marker1:hover {
+    display: block;
+    position: absolute;
+    top: -910px;
+    left: 490px;
+}
+
+#blue-marker2 {
+    display: block;
+    position: absolute;
+    top: -600px;
+    left: 300px;
+}
+
+#blue-marker2:hover {
+    display: block;
+    position: absolute;
+    top: -610px;
+    left: 290px;
+}
