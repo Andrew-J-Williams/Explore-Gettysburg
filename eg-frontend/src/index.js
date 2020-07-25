@@ -1,8 +1,10 @@
 window.addEventListener('DOMContentLoaded', e => {
 
     const firstContainer = document.querySelector("#first-container")
+    const blueMarker1 = document.querySelector("#blue-marker1")
 
     displayWelcome();
+    blueMarker1.addEventListener('click', testMarker)
     
     
     function displayWelcome(){
@@ -34,6 +36,12 @@ window.addEventListener('DOMContentLoaded', e => {
             Have fun learning!
         </p>
     `
+    }
+
+    function testMarker(){
+        firstContainer.innerHTML =`
+            <p>THIS IS A TEST</p>
+        `
     }
 
 });

@@ -92,7 +92,7 @@ h2 {
     font-family: Didot; 
 }
 
-.marker1 {
+.blue-marker1 {
     position: relative;
     max-width: 50px;
     max-height: 50px;
@@ -101,7 +101,7 @@ h2 {
     transition: 0.3s;
 }
 
-.marker1:hover {
+.blue-marker1:hover {
     cursor: pointer;
     max-width: 70px;
     max-height: 70px;
