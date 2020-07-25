@@ -2,7 +2,6 @@
     position: relative;
 }
 
-
 .markers img{
     max-width: 50px;
     max-height: 50px;
@@ -31,6 +30,34 @@
     left: 390px;
 }
 
+#red-marker2 {
+    display: block;
+    position: absolute;
+    top: -200px;
+    left: 200px;
+}
+
+#red-marker2:hover {
+    display: block;
+    position: absolute;
+    top: -210px;
+    left: 190px;
+}
+
+#red-marker3 {
+    display: block;
+    position: absolute;
+    top: -500px;
+    left: 600px;
+}
+
+#red-marker3:hover {
+    display: block;
+    position: absolute;
+    top: -510px;
+    left: 590px;
+}
+
 #blue-marker1 {
     display: block;
     position: absolute;
@@ -57,4 +84,60 @@
     position: absolute;
     top: -610px;
     left: 290px;
+}
+
+#blue-marker3 {
+    display: block;
+    position: absolute;
+    top: -750px;
+    left: 100px;
+}
+
+#blue-marker3:hover {
+    display: block;
+    position: absolute;
+    top: -760px;
+    left: 90px;
+}
+
+#green-marker1 {
+    display: block;
+    position: absolute;
+    top: -1050px;
+    left: 200px;
+}
+
+#green-marker1:hover {
+    display: block;
+    position: absolute;
+    top: -1060px;
+    left: 190px;
+}
+
+#green-marker2 {
+    display: block;
+    position: absolute;
+    top: -950px;
+    left: 750px;
+}
+
+#green-marker2:hover {
+    display: block;
+    position: absolute;
+    top: -960px;
+    left: 740px;
+}
+
+#green-marker3 {
+    display: block;
+    position: absolute;
+    top: -800px;
+    left: 450px;
+}
+
+#green-marker3:hover {
+    display: block;
+    position: absolute;
+    top: -810px;
+    left: 440px;
 }
