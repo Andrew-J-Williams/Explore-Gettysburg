@@ -92,7 +92,28 @@ h2 {
     font-family: Didot; 
 }
 
+.red-marker1 {
+    display: block;
+    position: relative;
+    max-width: 50px;
+    max-height: 50px;
+    top: -300px;
+    left: 400px;
+    transition: 0.3s;
+}
+
+.red-marker1:hover {
+    display: block;
+    cursor: pointer;
+    max-width: 70px;
+    max-height: 70px;
+    top: -310px;
+    left: 390px;
+    transition: 0.3s;
+} 
+
 .blue-marker1 {
+    display: block;
     position: relative;
     max-width: 50px;
     max-height: 50px;
@@ -102,10 +123,31 @@ h2 {
 }
 
 .blue-marker1:hover {
+    display: block;
     cursor: pointer;
     max-width: 70px;
     max-height: 70px;
     top: -910px;
     left: 490px;
+    transition: 0.3s;
+} 
+
+.blue-marker2 {
+    display: block;
+    position: relative;
+    max-width: 50px;
+    max-height: 50px;
+    top: -600px;
+    left: 300px;
+    transition: 0.3s;
+}
+
+.blue-marker2:hover {
+    display: block;
+    cursor: pointer;
+    max-width: 70px;
+    max-height: 70px;
+    top: -610px;
+    left: 290px;
     transition: 0.3s;
 } 

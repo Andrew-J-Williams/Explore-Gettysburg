@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
     const firstContainer = document.querySelector("#first-container")
     const blueMarker1 = document.querySelector("#blue-marker1")
+    const blueMarker2 = document.querySelector("#blue-marker2")
 
     displayWelcome();
     blueMarker1.addEventListener('click', testMarker)
