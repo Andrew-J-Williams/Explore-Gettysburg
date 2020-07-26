@@ -1,8 +1,15 @@
 window.addEventListener('DOMContentLoaded', e => {
 
     const firstContainer = document.querySelector("#first-container")
+    const redMarker1 = document.querySelector("#red-marker1")
+    const redMarker2 = document.querySelector("#red-marker2")
+    const redMarker3 = document.querySelector("#red-marker3")
+    const greenMarker1 = document.querySelector("#green-marker1")
+    const greenMarker2 = document.querySelector("#green-marker2")
+    const greenMarker3 = document.querySelector("#green-marker3")
     const blueMarker1 = document.querySelector("#blue-marker1")
     const blueMarker2 = document.querySelector("#blue-marker2")
+    const blueMarker3 = document.querySelector("#blue-marker3")
 
     displayWelcome();
     blueMarker1.addEventListener('click', testMarker)
