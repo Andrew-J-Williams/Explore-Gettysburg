@@ -10,11 +10,11 @@ window.addEventListener('DOMContentLoaded', e => {
     const blueMarker1 = document.querySelector("#blue-marker1")
     const blueMarker2 = document.querySelector("#blue-marker2")
     const blueMarker3 = document.querySelector("#blue-marker3")
-    //const markersArray = [redMarker1, redMarker2, redMarker3, greenMarker1, greenMarker2, greenMarker3, blueMarker1, blueMarker2, blueMarker3]
+    const markersArray = [redMarker1, redMarker2, redMarker3, greenMarker1, greenMarker2, greenMarker3, blueMarker1, blueMarker2, blueMarker3]
     
 
     displayWelcome();
-    markerSelect(blueMarker1);
+    assignMarkers(markersArray);
     
     
     function displayWelcome(){
@@ -52,8 +52,17 @@ window.addEventListener('DOMContentLoaded', e => {
     
     }
 
-    function fetchEvent(){
-        fetch('http://localhost:3000/api/v1/events/1')
+    function assignMarkers(array){
+        array.forEach(marker => {
+            markerSelect(marker);
+        })
+    }
+
+    function fetchEvent(marker){
+        const numValue = markersArray.indexOf(marker)+1
+        const markerUrl = `http://localhost:3000/api/v1/events/${numValue}`
+
+        fetch(markerUrl)
         .then(response => response.json())
         .then(data => {
             clearInfoContainer()
@@ -67,8 +76,10 @@ window.addEventListener('DOMContentLoaded', e => {
         `});
     }
 
-    function markerSelect(array){
-       array.addEventListener('click', fetchEvent)
+    function markerSelect(marker){ 
+       marker.addEventListener('click', e => {
+       e.preventDefault()
+       fetchEvent(marker)})
     }
 
     function clearInfoContainer(){

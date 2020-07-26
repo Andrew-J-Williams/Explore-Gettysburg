@@ -1,12 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
 User.create(username: "Testing stuff")
 
-Event.create(name: "1. Battle of Little Roundtop", description: "This is a test to see if the data can be fetched. No need to worry.", date: "July 2nd, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
+Event.create(name: "1. Battle of Little Roundtop", description: "This is a test to see if the 1st data can be fetched. No need to worry.", date: "July 1st, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
+Event.create(name: "2. Battle of Big Roundtop", description: "This is a test to see if the 2nd data can be fetched. No need to worry.", date: "July 1st, 1863", union_leader: "Pickel Martin", confederate_leader: "JEB Stuart", union_army: 1000, confederate_army: 720)
+Event.create(name: "3. Battle of the Peach Orchard", description: "This is a test to see if the 3rd data can be fetched. No need to worry.", date: "July 1st, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
+Event.create(name: "4. Battle of Devils Den", description: "This is a test to see if the 4th data can be fetched. No need to worry.", date: "July 2nd, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
+Event.create(name: "5. Forrest Fire", description: "This is a test to see if the 5th data can be fetched. No need to worry.", date: "July 2nd, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
+Event.create(name: "6. Western Calvary Engagement", description: "This is a test to see if the 6th data can be fetched. No need to worry.", date: "July 2nd, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
+Event.create(name: "7. Picketts Charge", description: "This is a test to see if the 7th data can be fetched. No need to worry.", date: "July 3rd, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
+Event.create(name: "8. Retreat to Virginia", description: "This is a test to see if the 8th data can be fetched. No need to worry.", date: "July 3rd, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
+Event.create(name: "9. Gettysburg Address", description: "This is a test to see if the 9th data can be fetched. No need to worry.", date: "July 3rd, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
