@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', e => {
 
-    const firstContainer = document.querySelector("#first-container")
+    const mainContainer = document.querySelector("#main")
     const redMarker1 = document.querySelector("#red-marker1")
     const redMarker2 = document.querySelector("#red-marker2")
     const redMarker3 = document.querySelector("#red-marker3")
@@ -16,6 +16,12 @@ window.addEventListener('DOMContentLoaded', e => {
     
     
     function displayWelcome(){
+        const containerDiv = document.createElement('div')
+        mainContainer.append(containerDiv)
+        containerDiv.classList.add("info-container")
+        containerDiv.id = "info-container"
+        const firstContainer = document.querySelector("#info-container")
+
         firstContainer.innerHTML = `
         <h2><b><i>Welcome to Explore Gettysburg!</i></b></h2>
         <p class="info-text">
@@ -47,9 +53,22 @@ window.addEventListener('DOMContentLoaded', e => {
     }
 
     function testMarker(){
-        firstContainer.innerHTML =`
-            <p>THIS IS A TEST</p>
-        `
+        fetchTest();
+    }
+
+    function fetchTest(){
+        fetch('http://localhost:3000/api/v1/events/1')
+        .then(response => response.json())
+        .then(data => firstContainer.innerHTML = `
+            <h2>${data.name}</h2>
+            <h3>${data.date}</h3>
+            <p>${data.description}</p>
+            
+        `);
+    }
+
+    function markerSelect(){
+
     }
 
 });

@@ -8,3 +8,5 @@
 
 
 User.create(username: "Testing stuff")
+
+Event.create(name: "1. Battle of Little Roundtop", description: "This is a test to see if the data can be fetched. No need to worry.", date: "July 2nd, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
