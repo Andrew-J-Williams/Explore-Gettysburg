@@ -15,6 +15,7 @@ h2 {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 20px;
 }
 
 .main {
@@ -86,7 +87,19 @@ h2 {
     bottom: 1200px;
     right: -860px;
     width: 500px;
-    height: 755px;
+    height: auto;
+    box-shadow: 1px 1px 5px #c7c7c7;
+    text-align: center;
+    font-family: Didot; 
+}
+
+.event-container {
+    background-color: white;
+    position: relative;
+    bottom: 1200px;
+    right: -860px;
+    width: 500px;
+    height: auto;
     box-shadow: 1px 1px 5px #c7c7c7;
     text-align: center;
     font-family: Didot; 

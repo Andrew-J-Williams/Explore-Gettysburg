@@ -10,9 +10,11 @@ window.addEventListener('DOMContentLoaded', e => {
     const blueMarker1 = document.querySelector("#blue-marker1")
     const blueMarker2 = document.querySelector("#blue-marker2")
     const blueMarker3 = document.querySelector("#blue-marker3")
+    const MARKERS = [redMarker1, redMarker2, redMarker3, greenMarker1, greenMarker2, greenMarker3, blueMarker1, blueMarker2, blueMarker3]
+    
 
     displayWelcome();
-    blueMarker1.addEventListener('click', testMarker)
+    markerSelect(MARKERS);
     
     
     function displayWelcome(){
@@ -50,25 +52,37 @@ window.addEventListener('DOMContentLoaded', e => {
             Have fun learning!
         </p>
     `
+    
     }
 
-    function testMarker(){
-        fetchTest();
-    }
-
-    function fetchTest(){
+    function fetchEvent(){
         fetch('http://localhost:3000/api/v1/events/1')
         .then(response => response.json())
-        .then(data => firstContainer.innerHTML = `
+        .then(data => {
+            const eventContainer = document.createElement('div')
+            let element = document.getElementById("info-container")
+            mainContainer.removeChild(element)
+            mainContainer.append(eventContainer)
+            eventContainer.classList.add("event-container")
+            eventContainer.id = "event-container"
+
+            eventContainer.innerHTML = `
             <h2>${data.name}</h2>
             <h3>${data.date}</h3>
-            <p>${data.description}</p>
+            <p class="info-text">${data.description}</p>
             
-        `);
+        `});
     }
 
-    function markerSelect(){
+    function markerSelect(array){
+        array.forEach(marker => {
 
+            if (marker === blueMarker1){
+                marker.addEventListener('click', fetchEvent)
+            } else if (marker === blueMarker2) {
+                marker.addEventListener('click', fetchEvent)
+            }
+        })
     }
 
 });
