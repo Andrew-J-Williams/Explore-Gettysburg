@@ -92,15 +92,3 @@ h2 {
     text-align: center;
     font-family: Didot; 
 }
-
-.event-container {
-    background-color: white;
-    position: relative;
-    bottom: 1200px;
-    right: -860px;
-    width: 500px;
-    height: auto;
-    box-shadow: 1px 1px 5px #c7c7c7;
-    text-align: center;
-    font-family: Didot; 
-}
