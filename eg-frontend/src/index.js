@@ -58,14 +58,33 @@ window.addEventListener('DOMContentLoaded', e => {
         })
     }
 
-    function fetchEvent(marker){
+    function fetchInformation(marker){
         const numValue = markersArray.indexOf(marker)+1
         const markerUrl = `http://localhost:3000/api/v1/events/${numValue}`
+        clearContainers()
+        fetchEvent(markerUrl);
+    }
 
+    function markerSelect(marker){ 
+       marker.addEventListener('click', e => {
+       e.preventDefault()
+       fetchInformation(marker)})
+    }
+
+    function clearContainers(){
+        const infoContainer = document.querySelector("#info-container")
+        const scenarioContainer = document.querySelector("#scenario-container")
+        const commentContainer = document.querySelector("#comment-container")
+        infoContainer.innerHTML = ``
+        scenarioContainer.innerHTML =  ``
+        commentContainer.innerHTML = ``
+    }
+
+    function fetchEvent(markerUrl){
         fetch(markerUrl)
         .then(response => response.json())
         .then(data => {
-            clearInfoContainer()
+            //clearInfoContainer()
             const infoContainer = document.querySelector("#info-container")
 
             infoContainer.innerHTML = `
@@ -76,15 +95,15 @@ window.addEventListener('DOMContentLoaded', e => {
         `});
     }
 
-    function markerSelect(marker){ 
-       marker.addEventListener('click', e => {
-       e.preventDefault()
-       fetchEvent(marker)})
+    function fetchScenario(markerUrl){
+        fetch(markerUrl)
+        .then(response => response.json())
+        .then(data => {
+
+
+        });
     }
 
-    function clearInfoContainer(){
-        const infoContainer = document.querySelector("#info-container")
-        infoContainer.innerHTML = ``
-    }
+
 
 });
