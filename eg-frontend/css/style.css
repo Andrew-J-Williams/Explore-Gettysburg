@@ -105,3 +105,14 @@ h2 {
     text-align: center;
     font-family: Didot; 
 }
+
+fieldset {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    padding-bottom: 20px;
+}
+
+button {
+    font-family: Didot;
+}
