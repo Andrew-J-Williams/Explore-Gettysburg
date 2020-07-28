@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', e => {
     
     
     function displayWelcome(){
-        clearInfoContainer();
+        clearContainers();
         const infoContainer = document.querySelector("#info-container");
 
         infoContainer.innerHTML = `
@@ -60,9 +60,11 @@ window.addEventListener('DOMContentLoaded', e => {
 
     function fetchInformation(marker){
         const numValue = markersArray.indexOf(marker)+1
-        const markerUrl = `http://localhost:3000/api/v1/events/${numValue}`
-        clearContainers()
-        fetchEvent(markerUrl);
+        const eventUrl = `http://localhost:3000/api/v1/events/${numValue}`
+        const scenarioUrl = `http://localhost:3000/api/v1/scenarios/${numValue}`
+        clearContainers();
+        fetchEvent(eventUrl);
+        fetchScenario(scenarioUrl);
     }
 
     function markerSelect(marker){ 
@@ -84,7 +86,6 @@ window.addEventListener('DOMContentLoaded', e => {
         fetch(markerUrl)
         .then(response => response.json())
         .then(data => {
-            //clearInfoContainer()
             const infoContainer = document.querySelector("#info-container")
 
             infoContainer.innerHTML = `
@@ -99,8 +100,12 @@ window.addEventListener('DOMContentLoaded', e => {
         fetch(markerUrl)
         .then(response => response.json())
         .then(data => {
+            const scenarioContainer = document.querySelector("#scenario-container")
 
-
+            scenarioContainer.innerHTML = `
+            <h2>${data.description}</h2>
+            <input type="radio">${data.option_one}</input>
+            `
         });
     }
 

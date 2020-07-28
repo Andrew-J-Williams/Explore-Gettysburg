@@ -1,6 +1,6 @@
 User.create(username: "Testing stuff")
 
-Event.create(name: "1. Battle of Little Roundtop", description: "This is a test to see if the 1st data can be fetched. No need to worry.", date: "July 1st, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
+Event.create(name: "1. Battle of Little Roundtop", description: "This is a test to see if the 1st data can be fetched. No need to worry. Testing testy test for a longer description check out the following information my very cool friend!", date: "July 1st, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
 Event.create(name: "2. Battle of Big Roundtop", description: "This is a test to see if the 2nd data can be fetched. No need to worry.", date: "July 1st, 1863", union_leader: "Pickel Martin", confederate_leader: "JEB Stuart", union_army: 1000, confederate_army: 720)
 Event.create(name: "3. Battle of the Peach Orchard", description: "This is a test to see if the 3rd data can be fetched. No need to worry.", date: "July 1st, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
 Event.create(name: "4. Battle of Devils Den", description: "This is a test to see if the 4th data can be fetched. No need to worry.", date: "July 2nd, 1863", union_leader: "Joshua Lawrence Chamberlain", confederate_leader: "Some Dude", union_army: 550, confederate_army: 800)
