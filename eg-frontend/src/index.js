@@ -62,9 +62,12 @@ window.addEventListener('DOMContentLoaded', e => {
         const numValue = markersArray.indexOf(marker)+1
         const eventUrl = `http://localhost:3000/api/v1/events/${numValue}`
         const scenarioUrl = `http://localhost:3000/api/v1/scenarios/${numValue}`
+        const commentUrl = `http://localhost:3000/api/v1/comments/`
+
         clearContainers();
         fetchEvent(eventUrl);
         fetchScenario(scenarioUrl);
+        fetchComments(commentUrl);
     }
 
     function markerSelect(marker){ 

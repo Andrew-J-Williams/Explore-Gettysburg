@@ -106,6 +106,19 @@ h2 {
     font-family: Didot; 
 }
 
+.comment-container {
+    background-color: white;
+    bottom: 1200px;
+    right: -860px;
+    width: 500px;
+    height: auto;
+    position: relative;
+    clear: both;
+    box-shadow: 1px 1px 5px #c7c7c7;
+    text-align: center;
+    font-family: Didot; 
+}
+
 fieldset {
     display: inline-block;
     position: relative;
