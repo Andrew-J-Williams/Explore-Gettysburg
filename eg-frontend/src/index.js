@@ -109,10 +109,17 @@ window.addEventListener('DOMContentLoaded', e => {
                 <div><label for="radio1"><input type="radio" name="rad" value="1" id="radio1">${data.option_one}</label></div>
                 <div><label for="radio2"><input type="radio" name="rad" value="2" id="radio2" checked>${data.option_two}</label></div>
                 <br>
-                <button>Submit</button>
+                <button id="submit-choice">Submit</button>
             </fieldset>
             <p class="info-text"></p>
             `
+            const submitButton = document.querySelector("#submit-choice")
+            submitButton.addEventListener('click', e => {
+                scenarioContainer.innerHTML = `
+                    <h2>${data.description}</h2>
+                    <p class="info-text">${data.answer_one}</p>
+                `
+            })
         });
     }
 
