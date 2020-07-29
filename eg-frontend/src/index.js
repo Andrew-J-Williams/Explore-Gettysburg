@@ -67,13 +67,14 @@ window.addEventListener('DOMContentLoaded', e => {
         clearContainers();
         fetchEvent(eventUrl);
         fetchScenario(scenarioUrl);
-        fetchComments(commentUrl);
+        fetchComments(commentUrl, numValue);
     }
 
     function markerSelect(marker){ 
        marker.addEventListener('click', e => {
-       e.preventDefault()
-       fetchInformation(marker)})
+            e.preventDefault()
+            fetchInformation(marker)
+        })
     }
 
     function clearContainers(){
@@ -92,7 +93,7 @@ window.addEventListener('DOMContentLoaded', e => {
             const infoContainer = document.querySelector("#info-container")
 
             infoContainer.innerHTML = `
-            <h2>${data.name}</h2>
+            <h2 id="event-id">${data.id}</h2><h2>${data.name}</h2>
             <h3>${data.date}</h3>
             <p class="info-text">${data.description}</p>
             
