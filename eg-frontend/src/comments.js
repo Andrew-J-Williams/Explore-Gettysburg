@@ -19,8 +19,8 @@ function fetchComments(markerUrl, eventId){
                 div.id = comment.id
 
                 div.innerHTML = `
-                    <h2>${comment.title}</h2>
-                    <p class="info-text">${comment.content}</p>
+                    <h4>${comment.title}</h4>
+                    <p>${comment.content}</p>
                 `
 
                 scrollSection.append(div)
@@ -35,4 +35,13 @@ function fetchComments(markerUrl, eventId){
             //`
 
         });
+}
+
+class Comment {
+    constructor(title, content, event_id, user_id){
+        this.title = title
+        this.content = content
+        this.event_id = event_id
+        this.user_id = user_id
+    }
 }
