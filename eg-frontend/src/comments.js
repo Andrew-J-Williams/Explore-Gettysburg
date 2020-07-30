@@ -13,13 +13,26 @@ function fetchComments(markerUrl, eventId){
             commentContainer.append(scrollSection)
             commentContainer.append(newComment)
 
-            scrollSection.innerHTML = `
-                <h2> This section will scroll through comments </h2>
-            `
+            data.forEach(comment => {
+                let div = document.createElement('div')
+                div.classList.add("individual-comment")
+                div.id = comment.id
 
-            newComment.innerHTML = `
-                <h2> This section will create new comments </h2>
-            `
+                div.innerHTML = `
+                    <h2>${comment.title}</h2>
+                    <p class="info-text">${comment.content}</p>
+                `
+
+                scrollSection.append(div)
+            })
+
+            //scrollSection.innerHTML = `
+            //    <h2> This section will scroll through comments </h2>
+            //`
+
+            //newComment.innerHTML = `
+            //    <h2> This section will create new comments </h2>
+            //`
 
         });
 }

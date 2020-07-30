@@ -19,3 +19,7 @@ Scenario.create(description: "1. Testing Scenario Data", option_one: "Run down t
 Scenario.create(description: "1. Testing Scenario Data", option_one: "Run down the hill as fast as you can!", option_two: "Stay back and hope Meade sends reinforcements", answer_one: "You successfully route the enemy and have them in retreat!", answer_two: "Reinforcements did not arrive in time. You have been outflanked!", event_id: 7)
 Scenario.create(description: "1. Testing Scenario Data", option_one: "Run down the hill as fast as you can!", option_two: "Stay back and hope Meade sends reinforcements", answer_one: "You successfully route the enemy and have them in retreat!", answer_two: "Reinforcements did not arrive in time. You have been outflanked!", event_id: 8)
 Scenario.create(description: "1. Testing Scenario Data", option_one: "Run down the hill as fast as you can!", option_two: "Stay back and hope Meade sends reinforcements", answer_one: "You successfully route the enemy and have them in retreat!", answer_two: "Reinforcements did not arrive in time. You have been outflanked!", event_id: 9)
+
+Comment.create(title: "Test", content: "I'm trying to see if my comments appear!", user_id: 1, event_id: 1)
+Comment.create(title: "Test 2", content: "Each comment will have it's own div!", user_id: 1, event_id: 1)
+Comment.create(title: "Test 3", content: "They will be stylized in such a way that you can tell the difference between each!", user_id: 1, event_id: 1)
