@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(user_params)
+        @user = User.find_or_create_by(username: user_params[:username])
 
         render json: @user
     end
@@ -21,6 +21,6 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:id, :username)
+      params.require(:user).permit(:id, :username, :password)
     end
 end
