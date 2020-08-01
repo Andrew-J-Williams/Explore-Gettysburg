@@ -52,14 +52,6 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             <textarea rows="6" cols="50" name="comment"></textarea>
             <input type="submit" value="Submit">
              `
-            //scrollSection.innerHTML = `
-            //    <h2> This section will scroll through comments </h2>
-            //`
-
-            //newComment.innerHTML = `
-            //    <h2> This section will create new comments </h2>
-            //`
-
             commentContainer.append(extraSpace)
         });
 }

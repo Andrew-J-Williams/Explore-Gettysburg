@@ -70,8 +70,12 @@ window.addEventListener('DOMContentLoaded', e => {
 
         clearContainers();
         fetchEvent(eventUrl);
-        fetchScenario(scenarioUrl);
-        fetchComments(commentUrl, numValue, userStatus, userId);
+        if (userStatus == true){
+            fetchScenario(scenarioUrl);
+            fetchComments(commentUrl, numValue, userStatus, userId);
+        } else {
+            fetchLoginReminder()
+        }
     }
 
     function markerSelect(marker){ 
@@ -97,7 +101,7 @@ window.addEventListener('DOMContentLoaded', e => {
             const infoContainer = document.querySelector("#info-container")
 
             infoContainer.innerHTML = `
-            <h2 id="event-id">${data.id}</h2><h2>${data.name}</h2>
+            <h2>${data.name}</h2>
             <h3>${data.date}</h3>
             <p class="info-text">${data.description}</p>
             
@@ -142,6 +146,17 @@ window.addEventListener('DOMContentLoaded', e => {
         });
     }
 
+    function fetchLoginReminder(){
+        const alertContainer = document.querySelector("#scenario-container")
 
+        alertContainer.innerHTML =`
+            <h2>Please Sign In to Access More Information!</h2>
+        `
+    }
+
+    function logInArea(){
+
+        
+    }
 
 });
