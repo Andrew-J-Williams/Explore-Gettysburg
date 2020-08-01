@@ -59,6 +59,7 @@ window.addEventListener('DOMContentLoaded', e => {
     }
 
     function fetchInformation(marker){
+        const userStatus = false;
         const numValue = markersArray.indexOf(marker)+1
         const eventUrl = `http://localhost:3000/api/v1/events/${numValue}`
         const scenarioUrl = `http://localhost:3000/api/v1/scenarios/${numValue}`
@@ -67,7 +68,7 @@ window.addEventListener('DOMContentLoaded', e => {
         clearContainers();
         fetchEvent(eventUrl);
         fetchScenario(scenarioUrl);
-        fetchComments(commentUrl, numValue);
+        fetchComments(commentUrl, numValue, userStatus);
     }
 
     function markerSelect(marker){ 

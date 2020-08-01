@@ -11,6 +11,10 @@ h2 {
     padding-right: 20px;
 }
 
+textarea {
+    resize: none; 
+}
+
 .info-text {
     padding-top: 20px;
     padding-left: 20px;
@@ -116,7 +120,14 @@ h2 {
     clear: both;
     box-shadow: 1px 1px 5px #c7c7c7;
     text-align: center;
-    font-family: Didot; 
+    font-family: Didot;
+}
+
+.new-comment-container {
+    width: 450px;
+    height: 175px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .individual-comment {
@@ -124,8 +135,10 @@ h2 {
     color: white;
     border-radius: 25px;
     padding: 5px;
-    width: 200px;
+    width: 300px;
     height: 100px;
+    margin: 0 auto;
+    position: relative;
 }
 
 fieldset {
