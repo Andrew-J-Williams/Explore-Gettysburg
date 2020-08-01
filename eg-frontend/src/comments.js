@@ -7,7 +7,7 @@ class Comment {
     }
 }
 
-function fetchComments(markerUrl, eventId, userStatus){
+function fetchComments(markerUrl, eventId, userStatus, userId){
     fetch(markerUrl)
         .then(response => response.json())
         .then(data => {

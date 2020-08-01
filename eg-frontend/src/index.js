@@ -12,6 +12,10 @@ window.addEventListener('DOMContentLoaded', e => {
     const blueMarker3 = document.querySelector("#blue-marker3")
     const markersArray = [redMarker1, redMarker2, redMarker3, greenMarker1, greenMarker2, greenMarker3, blueMarker1, blueMarker2, blueMarker3]
     
+    let userStatus = false;
+    let userId;
+
+
 
     displayWelcome();
     assignMarkers(markersArray);
@@ -59,7 +63,6 @@ window.addEventListener('DOMContentLoaded', e => {
     }
 
     function fetchInformation(marker){
-        const userStatus = false;
         const numValue = markersArray.indexOf(marker)+1
         const eventUrl = `http://localhost:3000/api/v1/events/${numValue}`
         const scenarioUrl = `http://localhost:3000/api/v1/scenarios/${numValue}`
@@ -68,7 +71,7 @@ window.addEventListener('DOMContentLoaded', e => {
         clearContainers();
         fetchEvent(eventUrl);
         fetchScenario(scenarioUrl);
-        fetchComments(commentUrl, numValue, userStatus);
+        fetchComments(commentUrl, numValue, userStatus, userId);
     }
 
     function markerSelect(marker){ 
