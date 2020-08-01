@@ -41,7 +41,7 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
                 scrollSection.append(div)
                 } else {
                     scrollSection.innerHTML = `
-                        <h1>No Comments Yet!</h1>
+                        <h2>No Comments Yet!</h2>
                     `
                 }
             })
@@ -58,8 +58,25 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
 
             scrollSection.innerHTML = `
                 <h1>Please Sign In to View Comments</h1>
+                <label>Username</label>
+                <input type="text" id="user-name-spot" class="user-name-spot">
+                <label>Password</label>
+                <input type="text" id="password-spot" class="password-spot">
+                <br>
+                <input type="submit" id="submit-user" class="submit-user" value="Submit">
             `
+            //const userName = document.querySelector('#user-name-spot').value
+            //const userPassword = document.querySelector('#password-spot').value
+            const userSubmit = document.querySelector('#submit-user')
 
+            userSubmit.addEventListener('click', e => {
+                e.preventDefault()
+                createUser()
+                userStatus = true;
+                const updatedStatus = userStatus
+                scrollSection.innerHTML =``
+                fetchComments(markerUrl, eventId, updatedStatus, userId)
+            })
         }
             //scrollSection.innerHTML = `
             //    <h2> This section will scroll through comments </h2>
