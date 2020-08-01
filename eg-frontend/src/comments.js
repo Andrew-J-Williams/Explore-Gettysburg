@@ -15,11 +15,6 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             const scrollSection = document.createElement('div')
             const newComment = document.createElement('div')
             const extraSpace = document.createElement('p')
-            const markerTracker = markerUrl
-            const eventTracker = eventId
-            const statusTracker = userStatus
-            const dataTracker = data
-
             scrollSection.classList.add("scroll-container")
             scrollSection.id = "scroll-container"
             newComment.classList.add("new-comment-container")
@@ -30,8 +25,7 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             commentContainer.append(scrollSection)
             commentContainer.append(newComment)
 
-            if (statusTracker == true) {
-            dataTracker.forEach(comment => {
+            data.forEach(comment => {
                 let div = document.createElement('div')
                 div.classList.add("individual-comment")
                 div.id = comment.id
@@ -58,30 +52,6 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             <textarea rows="6" cols="50" name="comment"></textarea>
             <input type="submit" value="Submit">
              `
-        } else {
-
-            commentContainer.innerHTML = `
-                <h1>Please Sign In to View Comments</h1>
-                <label>Username</label>
-                <input type="text" id="user-name-spot" class="user-name-spot">
-                <label>Password</label>
-                <input type="text" id="password-spot" class="password-spot">
-                <br>
-                <input type="submit" id="submit-user" class="submit-user" value="Submit">
-            `
-            //const userName = document.querySelector('#user-name-spot').value
-            //const userPassword = document.querySelector('#password-spot').value
-            const userSubmit = document.querySelector('#submit-user')
-
-            userSubmit.addEventListener('click', e => {
-                e.preventDefault()
-                createUser()
-                commentContainer.innerHTML=``
-                userStatus = true;
-                const updatedStatus = userStatus
-                fetchComments(markerTracker, eventTracker, updatedStatus, userId)
-            })
-        }
             //scrollSection.innerHTML = `
             //    <h2> This section will scroll through comments </h2>
             //`
