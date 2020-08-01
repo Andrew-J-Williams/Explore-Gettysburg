@@ -33,6 +33,31 @@ textarea {
     width: 100%;
 }
 
+.login {
+    position: relative;
+    background-color: #db1f32;
+    border-style: solid;
+    border-color: #db1f32;
+    border-width: 3px;
+    height: 80px;
+    width: 400px;
+    top: -50px;
+    left: 25px;
+    box-shadow: 1px 1px 5px #c7c7c7;
+}
+
+.inner-box {
+    height: 90%;
+    width: 98.5%;
+    text-align: center;
+    background-color: #db1f32;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    font-family: Didot;
+    color: white;
+}
+
 .eagle-shield {
     position: relative;
     opacity: 20%;

@@ -19,6 +19,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
     displayWelcome();
     assignMarkers(markersArray);
+    logInArea();
     
     
     function displayWelcome(){
@@ -155,8 +156,16 @@ window.addEventListener('DOMContentLoaded', e => {
     }
 
     function logInArea(){
+        const logInContainer = document.querySelector("#login")
 
-        
+        logInContainer.innerHTML =
+        `
+        <div class="inner-box">
+            <h1>TESTING</h1>
+            <p>TRY TO SEE ME</p>
+        </div>
+        `
+
     }
 
 });
