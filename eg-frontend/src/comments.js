@@ -15,6 +15,10 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             const scrollSection = document.createElement('div')
             const newComment = document.createElement('div')
             const extraSpace = document.createElement('p')
+            const markerTracker = markerUrl
+            const eventTracker = eventId
+            const statusTracker = userStatus
+            const dataTracker = data
 
             scrollSection.classList.add("scroll-container")
             scrollSection.id = "scroll-container"
@@ -26,8 +30,8 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             commentContainer.append(scrollSection)
             commentContainer.append(newComment)
 
-            if (userStatus === true) {
-            data.forEach(comment => {
+            if (statusTracker == true) {
+            dataTracker.forEach(comment => {
                 let div = document.createElement('div')
                 div.classList.add("individual-comment")
                 div.id = comment.id
@@ -56,7 +60,7 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
              `
         } else {
 
-            scrollSection.innerHTML = `
+            commentContainer.innerHTML = `
                 <h1>Please Sign In to View Comments</h1>
                 <label>Username</label>
                 <input type="text" id="user-name-spot" class="user-name-spot">
@@ -72,10 +76,10 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             userSubmit.addEventListener('click', e => {
                 e.preventDefault()
                 createUser()
+                commentContainer.innerHTML=``
                 userStatus = true;
                 const updatedStatus = userStatus
-                scrollSection.innerHTML =``
-                fetchComments(markerUrl, eventId, updatedStatus, userId)
+                fetchComments(markerTracker, eventTracker, updatedStatus, userId)
             })
         }
             //scrollSection.innerHTML = `
