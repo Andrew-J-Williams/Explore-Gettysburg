@@ -1,9 +1,9 @@
 class Comment {
-    constructor(title, content, event_id, user_id){
-        this.title = title
-        this.content = content
-        this.event_id = event_id
-        this.user_id = user_id
+    constructor(data){
+        this.title = data.title
+        this.content = data.content
+        this.event_id = data.event_id
+        this.user_id = data.user_id
     }
 }
 
@@ -45,13 +45,39 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             })
 
             newComment.innerHTML = `
-            <input type="hidden" id="title"><br/>
-            <input type="hidden" id="event-id">
-            <input type="hidden" id="user-id">
             <label><strong>Description:   </strong></label><br/>
             <textarea rows="6" cols="50" name="comment"></textarea>
-            <input type="submit" value="Submit">
+            <input id="submit-comment" class="submit-comment" type="submit" value="Submit">
              `
             commentContainer.append(extraSpace)
+            addComment(eventId, userId);
         });
+
+        
+}
+
+function addComment(getEventId, getUserId){
+    const grabCommentURL = `http://localhost:3000/api/v1/comments/`
+
+    const usersName = document.querySelector('#welcome-user').innerText
+    const commentTitle = usersName.toString().substr(9)
+
+    console.log(getEventId)
+    console.log(getUserId)
+
+    const comment = {
+        title: 
+    }
+
+
+    fetch(grabCommentUrl, {
+        method: "POST",
+        body: JSON.stringify(comment),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+    })
+    .then(resp => resp.json())
+    .then(newComment => {
+
+    })
+
 }

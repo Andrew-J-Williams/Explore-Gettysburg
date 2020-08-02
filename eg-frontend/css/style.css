@@ -199,6 +199,11 @@ textarea {
     position: relative;
 }
 
+.scroll-container {
+    overflow-y: scroll;
+    height: 300px;
+}
+
 .individual-comment {
     background-color: #084572;
     color: white;
@@ -239,4 +244,8 @@ input[type="radio"] {
 input[type="radio"]:checked {
     background-color: #084572;
     outline: none;
+}
+
+.hidden-event-id {
+    opacity: 0%;
 }

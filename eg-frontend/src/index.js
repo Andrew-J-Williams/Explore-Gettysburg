@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', e => {
     
     let userStatus = false;
     let userId;
+    let eventValue;
 
 
 
@@ -75,6 +76,7 @@ window.addEventListener('DOMContentLoaded', e => {
         const eventUrl = `http://localhost:3000/api/v1/events/${numValue}`
         const scenarioUrl = `http://localhost:3000/api/v1/scenarios/${numValue}`
         const commentUrl = `http://localhost:3000/api/v1/comments/`
+        eventValue = numValue
 
         clearContainers();
         fetchEvent(eventUrl);
@@ -107,11 +109,14 @@ window.addEventListener('DOMContentLoaded', e => {
         .then(response => response.json())
         .then(data => {
             const infoContainer = document.querySelector("#info-container")
+            eventValue = data.id
+            //console.log(eventValue)
 
             infoContainer.innerHTML = `
             <h2>${data.name}</h2>
             <h3>${data.date}</h3>
             <p class="info-text">${data.description}</p>
+            <p class="hidden-event-id">${data.id}</p>
             
         `});
     }
@@ -213,12 +218,12 @@ window.addEventListener('DOMContentLoaded', e => {
             console.log(newUser)
     
             const selectLogIn = document.querySelector("#login")
-            const removeInner = document.getElementsByClassName("inner-box")
+            //const removeInner = document.getElementsByClassName("inner-box")
     
             selectLogIn.classList.toggle("shrink")
     
             selectLogIn.innerHTML = `
-                <h3><b><i>Welcome, ${newUser.username}!</i></b></h3>
+                <h3 id="welcome-user" class="welcome-user"><b><i>Welcome, ${newUser.username}</i></b></h3>
             `
             userId = newUser.id
             console.log(userId)
