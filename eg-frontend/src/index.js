@@ -171,7 +171,11 @@ window.addEventListener('DOMContentLoaded', e => {
 
 
         const logInContainer = document.querySelector("#login")
-        logInContainer.innerHTML = `
+        const innerDiv = document.createElement('div')
+        innerDiv.classList.add("inner-box")
+
+        logInContainer.append(innerDiv)
+        innerDiv.innerHTML = `
         <br>
         <label><b>Username: </b></label>
         <input type="text" id="user-name-spot" class="user-name-spot"/>
@@ -186,11 +190,36 @@ window.addEventListener('DOMContentLoaded', e => {
 
         logInButton.addEventListener('click', e => {
             e.preventDefault()
-            logInContainer.style.opacity = 0;
             createUser()
             userStatus = true;
-            logInContainer.style.opacity = 1;
         })
     }
 
+    function createUser(){
+        const userUrl = `http://localhost:3000/api/v1/users/`
+        const user = {
+            username: document.getElementById('user-name-spot').value,
+            password: document.getElementById('password-spot').value
+        }
+    
+        fetch(userUrl, {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+        })
+        .then(resp => resp.json())
+        .then(newUser => {
+            console.log(newUser)
+    
+            const selectLogIn = document.querySelector("#login")
+            const removeInner = document.getElementsByClassName("inner-box")
+    
+            selectLogIn.classList.toggle("shrink")
+    
+            selectLogIn.innerHTML = `
+                <h3><b><i>Welcome, ${newUser.username}!</i></b></h3>
+            `
+        })
+    
+    }
 });

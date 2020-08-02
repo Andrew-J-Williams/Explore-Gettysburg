@@ -12,6 +12,15 @@ h2 {
     padding-bottom: 20px;
 }
 
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    box-shadow: 1px 1px 3px gray;
+    outline: none;
+}
+
 textarea {
     resize: none; 
 }
@@ -35,19 +44,49 @@ textarea {
 
 .login {
     position: relative;
-    background-color: linen;
-    border-style: solid;
-    border-color: #db1f32;
-    border-width: 1px;
-    height: auto;
+    background-color: #db1f32;
+    height: 150px;
     width: 405px;
     top: -50px;
     left: 26px;
     box-shadow: 1px 1px 5px #c7c7c7;
-    color: #084572;
+    color: linen;
     text-align: center;
     font-family: Didot;
     font-weight: bold;
+    overflow-y: hidden;
+}
+
+.shrink {
+    transition: all 0.3s ease-in-out;
+    height: 60px;
+    border-style: solid;
+    border-color: #db1f32;
+    border-width: 1px;
+    background-color: linen;
+    color: #084572;
+}
+
+.user-name-spot {
+    background-color: linen;
+    color: #084572;
+    font-family: Didot;
+}
+
+.password-spot {
+    background-color: linen;
+    color: #084572;
+    font-family: Didot;
+}
+
+.log-in-button {
+    background-color: linen;
+    color: #084572;
+    font-family: Didot;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
 }
 
 .eagle-shield {
