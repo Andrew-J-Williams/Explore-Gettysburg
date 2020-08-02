@@ -156,16 +156,35 @@ window.addEventListener('DOMContentLoaded', e => {
     }
 
     function logInArea(){
+        const div = document.createElement('div')
+        div.classList.add('login')
+        div.id = 'login'
+        const header = document.querySelector('#header')
+        header.append(div)
+
+
         const logInContainer = document.querySelector("#login")
+        const innerDiv = document.createElement('div')
+        innerDiv.classList.add("inner-box")
 
-        logInContainer.innerHTML =
+        logInContainer.append(innerDiv)
+        innerDiv.innerHTML = `
+        <br>
+        <label><b>Username: </b></label>
+        <input type="text" id="user-name-spot" class="user-name-spot"/>
+        <br><br>
+        <label><b>Password: </b></label>
+        <input type="text" id="password-spot" class="password-spot"/>
+        <br><br>
+        <button id="log-in-button" class="log-in-button">Log In</button>
+        <br><br>
         `
-        <div class="inner-box">
-            <h1>TESTING</h1>
-            <p>TRY TO SEE ME</p>
-        </div>
-        `
+        const logInButton = document.querySelector('#log-in-button')
 
+        logInButton.addEventListener('click', e => {
+            e.preventDefault()
+            createUser()
+        })
     }
 
 });

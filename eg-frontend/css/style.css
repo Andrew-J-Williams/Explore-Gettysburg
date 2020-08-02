@@ -38,23 +38,24 @@ textarea {
     background-color: #db1f32;
     border-style: solid;
     border-color: #db1f32;
-    border-width: 3px;
-    height: 80px;
-    width: 400px;
+    border-width: 5px;
+    height: auto;
+    width: 405px;
     top: -50px;
-    left: 25px;
+    left: 26px;
     box-shadow: 1px 1px 5px #c7c7c7;
 }
 
 .inner-box {
     height: 90%;
-    width: 98.5%;
+    width: 97.5%;
     text-align: center;
     background-color: #db1f32;
     border-style: solid;
     border-color: white;
-    border-width: 3px;
+    border-width: 5px;
     font-family: Didot;
+    font-weight: bold;
     color: white;
 }
 
