@@ -219,6 +219,8 @@ window.addEventListener('DOMContentLoaded', e => {
             selectLogIn.innerHTML = `
                 <h3><b><i>Welcome, ${newUser.username}!</i></b></h3>
             `
+            userId = newUser.id
+            console.log(userId)
         })
     
     }
