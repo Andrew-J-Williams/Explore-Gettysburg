@@ -18,8 +18,8 @@ window.addEventListener('DOMContentLoaded', e => {
 
 
     displayWelcome();
-    assignMarkers(markersArray);
-    logInArea();
+    //assignMarkers(markersArray);
+    //logInArea();
     
     
     function displayWelcome(){
@@ -54,6 +54,13 @@ window.addEventListener('DOMContentLoaded', e => {
             Have fun learning!
         </p>
     `
+
+    if (userStatus == true) {
+        assignMarkers(markersArray);
+    } else {
+        assignMarkers(markersArray);
+        logInArea();
+    }
     
     }
 
@@ -164,11 +171,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
 
         const logInContainer = document.querySelector("#login")
-        const innerDiv = document.createElement('div')
-        innerDiv.classList.add("inner-box")
-
-        logInContainer.append(innerDiv)
-        innerDiv.innerHTML = `
+        logInContainer.innerHTML = `
         <br>
         <label><b>Username: </b></label>
         <input type="text" id="user-name-spot" class="user-name-spot"/>
@@ -183,7 +186,10 @@ window.addEventListener('DOMContentLoaded', e => {
 
         logInButton.addEventListener('click', e => {
             e.preventDefault()
+            logInContainer.style.opacity = 0;
             createUser()
+            userStatus = true;
+            logInContainer.style.opacity = 1;
         })
     }
 

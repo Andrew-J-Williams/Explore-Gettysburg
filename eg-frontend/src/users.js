@@ -20,6 +20,15 @@ function createUser(){
     .then(resp => resp.json())
     .then(newUser => {
         console.log(newUser)
+
+        const selectLogIn = document.querySelector("#login")
+        const removeInner = document.getElementsByClassName("inner-box")
+        selectLogIn.prepend(removeInner)
+
+
+        selectLogIn.innerHTML = `
+            <h3><b><i>Welcome, ${newUser.username}!</i></b></h3>
+        `
     })
 
 }
