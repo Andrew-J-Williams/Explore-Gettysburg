@@ -90,6 +90,17 @@ function addComment(getEventId, getUserId){
     .then(resp => resp.json())
     .then(newComment => {
         console.log(newComment)
+
+        let div = document.createElement('div')
+        let scrollContainer = document.getElementById('scroll-container')
+        div.classList.add("individual-comment")
+        div.id = newComment.id
+
+        div.innerHTML = `
+            <h4>${newComment.title}</h4>
+            <p>${newComment.content}</p>
+        `
+        scrollContainer.append(div)
     })
 
 }
