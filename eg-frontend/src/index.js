@@ -54,6 +54,7 @@ window.addEventListener('DOMContentLoaded', e => {
             Once you click on a marker, you can learn about the event, explore an alternative history to the event, or leave a comment for further discussion.
             Have fun learning!
         </p>
+
     `
 
     if (userStatus == true) {
@@ -116,7 +117,7 @@ window.addEventListener('DOMContentLoaded', e => {
             <h2>${data.name}</h2>
             <h3>${data.date}</h3>
             <p class="info-text">${data.description}</p>
-            <p class="hidden-event-id">${data.id}</p>
+            <p id="hidden-event-id" class="hidden-event-id">${data.id}</p>
             
         `});
     }
@@ -224,9 +225,11 @@ window.addEventListener('DOMContentLoaded', e => {
     
             selectLogIn.innerHTML = `
                 <h3 id="welcome-user" class="welcome-user"><b><i>Welcome, ${newUser.username}</i></b></h3>
+                <p id="hidden-user-id" class="hidden-user-id">${newUser.id}</p>
             `
             userId = newUser.id
             console.log(userId)
+            console.log(document.getElementById("hidden-user-id").innerText)
         })
     
     }
