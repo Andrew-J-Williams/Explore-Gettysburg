@@ -197,22 +197,26 @@ textarea {
     height: 175px;
     margin: 0 auto;
     position: relative;
+    padding-top: 20px;
 }
 
 .scroll-container {
+    padding-top: 15px;
+    padding-bottom: 25px;
     overflow-y: scroll;
-    height: 300px;
+    height: 250px;
+    position: relative;
+    top: 20px;
 }
 
 .individual-comment {
-    background-color: #084572;
-    color: white;
-    border-radius: 25px;
-    padding: 5px;
-    width: 300px;
+    background-color: #eff2f5;
+    padding: 1px;
+    width: 400px;
     height: auto;
     margin: 0 auto;
     position: relative;
+    clear: both;
 }
 
 fieldset {

@@ -27,16 +27,20 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
 
             data.forEach(comment => {
                 let div = document.createElement('div')
+                let br = document.createElement('br')
                 div.classList.add("individual-comment")
                 div.id = comment.id
+
 
                 if (comment.event_id === eventId){
                     div.innerHTML = `
                         <h4>${comment.title}</h4>
                         <p>${comment.content}</p>
                     `
-
+                    
+                scrollSection.append(br)
                 scrollSection.append(div)
+                scrollSection.append(br)
                 } else {
                     scrollSection.innerHTML = `
                         <h2>No Comments Yet!</h2>
@@ -92,6 +96,7 @@ function addComment(getEventId, getUserId){
         console.log(newComment)
 
         let div = document.createElement('div')
+        let br = document.createElement('br')
         let scrollContainer = document.getElementById('scroll-container')
         div.classList.add("individual-comment")
         div.id = newComment.id
@@ -101,6 +106,8 @@ function addComment(getEventId, getUserId){
             <p>${newComment.content}</p>
         `
         scrollContainer.append(div)
+        scrollContainer.append(br)
+        div.scrollIntoView()
     })
 
 }
