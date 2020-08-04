@@ -3,31 +3,31 @@ class Api::V1::CommentsController < ApplicationController
     def index
         @comments = Comment.all
 
-        render json: @comments, status: 200 
+        render json: @comments 
     end
 
     def show
         @comment = Comment.find(params[:id])
 
-        render json: @comment, status: 200
+        render json: @comment
     end
 
     def create
         @comment = Comment.create(comment_params)
 
-        render json: @comment, status: 200
+        render json: @comment
     end
 
     def update
         @comment = Comment.find(params[:id])
         @comment.update(comment_params)
 
-        render json: @comment, status: 200
+        render json: @comment
     end
 
     def destroy
-        comment = Comment.find(params[:id])
-        commnet.delete
+        comment = Comment.find_by(id: params[:id])
+        comment.destroy
 
         render json: comment
     end
@@ -35,7 +35,7 @@ class Api::V1::CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:title, :content, :user_id, :event_id)
+        params.require(:comment).permit(:id, :title, :content, :user_id, :event_id)
     end
 
 

@@ -49,9 +49,9 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
                     div.append(img)
 
                     img.addEventListener('click', e => {
-                        let targetId = e.target.id
-
-                        deleteComment(targetId)
+                        e.preventDefault()
+                        console.log(comment)
+                        deleteComment(comment, e)
                     })
                 }
                     
@@ -77,18 +77,6 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
                 e.preventDefault()
                 addComment(eventId, userId);
             })
-
-            const commentDelete = document.getElementsByClassName('comment-x')
-
-            //commentDelete.forEach(element => {
-            //    console.log(element)
-            //})
-            
-            
-            //addEventListener('click', e => {
-            //    e.preventDefault();
-            //    deleteComment(commentDelete.id)
-            //})
 
         });
 
@@ -148,15 +136,17 @@ function addComment(getEventId, getUserId){
 
 }
 
-function deleteComment(comment){
-    const specificComment = `http://localhost:3000/api/v1/comments/${comment}`
-
-
-    return fetch(specificComment, {
-        method: 'DELETE'
+function deleteComment(comment, event){
+    
+    fetch(`http://localhost:3000/api/v1/comments/${comment.id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
     })
     .then(resp => resp.json())
     .then(data => {
-        return data
+        event.target.parentElement.remove()
     })
 }
