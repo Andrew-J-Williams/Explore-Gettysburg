@@ -217,6 +217,7 @@ textarea {
     margin: 0 auto;
     position: relative;
     clear: both;
+    box-shadow: 1px 1px 5px #c7c7c7;
 }
 
 fieldset {
@@ -256,4 +257,13 @@ input[type="radio"]:checked {
 
 .hidden-user-id {
     opacity: 0%;
+}
+
+.comment-x {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    top: 2px;
+    right: 2px;
+    cursor: pointer;
 }

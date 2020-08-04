@@ -20,6 +20,8 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             newComment.classList.add("new-comment-container")
             newComment.id = "new-comment-container"
             extraSpace.classList.add("info-text")
+            const currentUserId = document.getElementById("hidden-user-id").innerText
+            const addUserId = parseInt(currentUserId, 10)
 
 
             commentContainer.append(scrollSection)
@@ -29,7 +31,8 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
                 let div = document.createElement('div')
                 let br = document.createElement('br')
                 div.classList.add("individual-comment")
-                div.id = comment.id
+                let commentId = comment.id
+                div.id = commentId
 
 
                 if (comment.event_id === eventId){
@@ -37,6 +40,20 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
                         <h4>${comment.title}</h4>
                         <p>${comment.content}</p>
                     `
+                
+                if (addUserId === comment.user_id) {
+                    let img = document.createElement('img')
+                    img.classList.add('comment-x')
+                    img.id = commentId
+                    img.src = 'https://svgsilh.com/svg/147923.svg'
+                    div.append(img)
+
+                    img.addEventListener('click', e => {
+                        let targetId = e.target.id
+
+                        deleteComment(targetId)
+                    })
+                }
                     
                 scrollSection.append(br)
                 scrollSection.append(div)
@@ -60,6 +77,19 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
                 e.preventDefault()
                 addComment(eventId, userId);
             })
+
+            const commentDelete = document.getElementsByClassName('comment-x')
+
+            //commentDelete.forEach(element => {
+            //    console.log(element)
+            //})
+            
+            
+            //addEventListener('click', e => {
+            //    e.preventDefault();
+            //    deleteComment(commentDelete.id)
+            //})
+
         });
 
         
@@ -105,9 +135,28 @@ function addComment(getEventId, getUserId){
             <h4>${newComment.title}</h4>
             <p>${newComment.content}</p>
         `
+        let img = document.createElement('img')
+        img.classList.add('comment-x')
+        img.id = 'comment-x'
+        img.src = 'https://svgsilh.com/svg/147923.svg'
+        div.append(img)
+
         scrollContainer.append(div)
         scrollContainer.append(br)
         div.scrollIntoView()
     })
 
+}
+
+function deleteComment(comment){
+    const specificComment = `http://localhost:3000/api/v1/comments/${comment}`
+
+
+    return fetch(specificComment, {
+        method: 'DELETE'
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        return data
+    })
 }

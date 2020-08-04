@@ -26,10 +26,10 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = Comment.find(params[:id])
-        @commnet.delete
+        comment = Comment.find(params[:id])
+        commnet.delete
 
-        render json: {commentId: @comment.id}
+        render json: comment
     end
 
     private
