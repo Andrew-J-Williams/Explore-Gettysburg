@@ -7,7 +7,7 @@ class Comment {
     }
 }
 
-function fetchComments(markerUrl, eventId, userStatus, userId){
+function fetchComments(markerUrl, eventId, userId){
     fetch(markerUrl)
         .then(response => response.json())
         .then(data => {
@@ -68,10 +68,10 @@ function fetchComments(markerUrl, eventId, userStatus, userId){
             newComment.innerHTML = `
             <label><strong>Description:   </strong></label><br/>
             <textarea rows="6" cols="50" name="comment" id="comment-box" class="comment-box"></textarea>
-            <input id="submit-comment" class="submit-comment" type="submit" value="Submit">
+            <button id="submit-choice" class="submit-comment">Submit</button>
              `
             commentContainer.append(extraSpace)
-            const commentSubmit = document.getElementById('submit-comment')
+            const commentSubmit = document.getElementsByClassName('submit-comment')
 
             commentSubmit.addEventListener('click', e => {
                 e.preventDefault()

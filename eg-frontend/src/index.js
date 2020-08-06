@@ -80,7 +80,7 @@ window.addEventListener('DOMContentLoaded', e => {
         fetchEvent(eventUrl, eventValue);
         if (userStatus == true){
             fetchScenario(scenarioUrl);
-            fetchComments(commentUrl, numValue, userStatus, userId);
+            fetchComments(commentUrl, numValue, userId);
         } else {
             fetchLoginReminder()
         }
@@ -104,10 +104,11 @@ window.addEventListener('DOMContentLoaded', e => {
 
     function fetchLoginReminder(){
         const alertContainer = document.querySelector("#scenario-container")
+        const h2 = document.createElement('h2')
 
-        alertContainer.innerHTML =`
-            <h2>Please Sign In to Access More Information!</h2>
-        `
+        h2.innerText = `Please Sign In to Access More Information!`
+        
+        alertContainer.append(h2)
     }
 
     function logInArea(){

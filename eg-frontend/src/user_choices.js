@@ -23,6 +23,8 @@ function createUserChoice (userAnswer, userId, eventId, scenarioId){
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     })
     .then(resp => resp.json())
-
+    .then(newChoice => {
+        console.log(newChoice)
+    })
 
 }
