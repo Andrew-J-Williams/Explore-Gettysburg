@@ -19,9 +19,6 @@ window.addEventListener('DOMContentLoaded', e => {
 
 
     displayWelcome();
-    //assignMarkers(markersArray);
-    //logInArea();
-    
     
     function displayWelcome(){
         clearContainers();
@@ -143,11 +140,10 @@ window.addEventListener('DOMContentLoaded', e => {
             submitButton.addEventListener('click', e => {
                 
                 if (document.getElementById('radio1').checked){
-                
-                scenarioContainer.innerHTML = `
-                    <h2>${data.description}</h2>
-                    <p class="info-text">${data.answer_one}</p>
-                `
+                    scenarioContainer.innerHTML = `
+                        <h2>${data.description}</h2>
+                        <p class="info-text">${data.answer_one}</p>
+                    `
                 } else if (document.getElementById('radio2').checked){
 
                     scenarioContainer.innerHTML = `
@@ -219,7 +215,6 @@ window.addEventListener('DOMContentLoaded', e => {
             console.log(newUser)
     
             const selectLogIn = document.querySelector("#login")
-            //const removeInner = document.getElementsByClassName("inner-box")
     
             selectLogIn.classList.toggle("shrink")
     
