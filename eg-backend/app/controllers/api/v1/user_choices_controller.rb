@@ -9,14 +9,14 @@ class Api::V1::UserChoicesController < ApplicationController
     def create
         @user_choice = UserChoice.new(user_choice_params)
         if @user_choice.save
-            render json: @user_choice, status: 200
+            render json: @user_choice
         end
     end
 
     private 
 
     def user_choice_params
-        params.require(:user_choice).permit(:id, :user_id, :event_id, :scenario_id, :user_input)
+        params.require(:user_choice).permit(:user_id, :event_id, :scenario_id, :user_input)
     end
 
 end
