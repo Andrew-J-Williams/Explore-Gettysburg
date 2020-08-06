@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', e => {
         eventValue = numValue
 
         clearContainers();
-        fetchEvent(eventUrl);
+        fetchEvent(eventUrl, eventValue);
         if (userStatus == true){
             fetchScenario(scenarioUrl);
             fetchComments(commentUrl, numValue, userStatus, userId);
@@ -100,60 +100,6 @@ window.addEventListener('DOMContentLoaded', e => {
         infoContainer.innerHTML = ``
         scenarioContainer.innerHTML =  ``
         commentContainer.innerHTML = ``
-    }
-
-    function fetchEvent(markerUrl){
-        fetch(markerUrl)
-        .then(response => response.json())
-        .then(data => {
-            const infoContainer = document.querySelector("#info-container")
-            eventValue = data.id
-            //console.log(eventValue)
-
-            infoContainer.innerHTML = `
-            <h2>${data.name}</h2>
-            <h3>${data.date}</h3>
-            <p class="info-text">${data.description}</p>
-            <p id="hidden-event-id" class="hidden-event-id">${data.id}</p>
-            
-        `});
-    }
-
-    function fetchScenario(markerUrl){
-        fetch(markerUrl)
-        .then(response => response.json())
-        .then(data => {
-            const scenarioContainer = document.querySelector("#scenario-container")
-
-            scenarioContainer.innerHTML = `
-            <h2>${data.description}</h2>
-            <fieldset>
-                <legend><b> Battle Decision </b></legend>
-                <div><label for="radio1"><input type="radio" name="rad" value="1" id="radio1">${data.option_one}</label></div>
-                <div><label for="radio2"><input type="radio" name="rad" value="2" id="radio2">${data.option_two}</label></div>
-                <br>
-                <button id="submit-choice">Submit</button>
-            </fieldset>
-            <p class="info-text"></p>
-            `
-            const submitButton = document.querySelector("#submit-choice")
-            submitButton.addEventListener('click', e => {
-                
-                if (document.getElementById('radio1').checked){
-                    scenarioContainer.innerHTML = `
-                        <h2>${data.description}</h2>
-                        <p class="info-text">${data.answer_one}</p>
-                    `
-                } else if (document.getElementById('radio2').checked){
-
-                    scenarioContainer.innerHTML = `
-                    <h2>${data.description}</h2>
-                    <p class="info-text">${data.answer_two}</p>
-                `
-
-                }
-            })
-        });
     }
 
     function fetchLoginReminder(){
@@ -193,39 +139,9 @@ window.addEventListener('DOMContentLoaded', e => {
 
         logInButton.addEventListener('click', e => {
             e.preventDefault()
-            createUser()
+            createUser(userId)
             userStatus = true;
         })
     }
 
-    function createUser(){
-        const userUrl = `http://localhost:3000/api/v1/users/`
-        const user = {
-            username: document.getElementById('user-name-spot').value,
-            password: document.getElementById('password-spot').value
-        }
-    
-        fetch(userUrl, {
-            method: "POST",
-            body: JSON.stringify(user),
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
-        })
-        .then(resp => resp.json())
-        .then(newUser => {
-            console.log(newUser)
-    
-            const selectLogIn = document.querySelector("#login")
-    
-            selectLogIn.classList.toggle("shrink")
-    
-            selectLogIn.innerHTML = `
-                <h3 id="welcome-user" class="welcome-user"><b><i>Welcome, ${newUser.username}</i></b></h3>
-                <p id="hidden-user-id" class="hidden-user-id">${newUser.id}</p>
-            `
-            userId = newUser.id
-            console.log(userId)
-            console.log(document.getElementById("hidden-user-id").innerText)
-        })
-    
-    }
 });
