@@ -23,12 +23,17 @@ function fetchScenario(markerUrl){
         `
         const submitButton = document.querySelector("#submit-choice")
         submitButton.addEventListener('click', e => {
+            const grabUserId = document.getElementById('hidden-user-id').innerText
+            const returnUserId = parseInt(grabUserId, 10)
             
             if (document.getElementById('radio1').checked){
                 scenarioContainer.innerHTML = `
                     <h2>${scenario_desc}</h2>
                     <p id="answer-one" class="info-text">${answer_one}</p>
                 `
+                //createUserChoice(answer_one, returnUserId, ,scenarioId);
+                console.log(scenarioId)
+                console.log(returnUserId)
 
             } else if (document.getElementById('radio2').checked){
 

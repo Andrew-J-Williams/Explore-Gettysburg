@@ -7,7 +7,7 @@ class UserChoice{
     }
 }
 
-function createUserChoice (userAnswer, userId, eventId, scenarioId){
+function createUserChoice(userAnswer, userId, eventId, scenarioId){
     const choicesUrl = `http://localhost:3000/api/v1/user_choices/`
 
     const choice = {
