@@ -29,35 +29,45 @@ function fetchComments(markerUrl, eventId, userId){
 
             data.forEach(comment => {
                 let div = document.createElement('div')
+                let divUser = document.createElement('div')
                 let br = document.createElement('br')
                 div.classList.add("individual-comment")
+                divUser.classList.add("user-comment")
                 let commentId = comment.id
                 div.id = commentId
+                divUser.id = commentId
 
 
-                if (comment.event_id === eventId){
-                    div.innerHTML = `
-                        <h4>${comment.title}</h4>
+                if (comment.event_id === eventId && addUserId === comment.user_id){
+                    divUser.innerHTML = `
+                        <h4 class="comment-title">${comment.title}</h4>
                         <p>${comment.content}</p>
                     `
-                
-                if (addUserId === comment.user_id) {
                     let img = document.createElement('img')
                     img.classList.add('comment-x')
                     img.id = commentId
                     img.src = 'https://svgsilh.com/svg/147923.svg'
-                    div.append(img)
+                    divUser.append(img)
 
                     img.addEventListener('click', e => {
                         e.preventDefault()
                         console.log(comment)
                         deleteComment(comment, e)
                     })
-                }
                     
-                scrollSection.append(br)
-                scrollSection.append(div)
-                scrollSection.append(br)
+                    
+                    scrollSection.append(br)
+                    scrollSection.append(divUser)
+                    scrollSection.append(br)
+                } else if (comment.event_id === eventId && addUserId != comment.user_id){
+                    div.innerHTML = `
+                        <h4 class="comment-title">${comment.title}</h4>
+                        <p>${comment.content}</p>
+                    `
+
+                    scrollSection.append(br)
+                    scrollSection.append(div)
+                    scrollSection.append(br)
                 } else {
                     scrollSection.innerHTML = `
                         <h2>No Comments Yet!</h2>
@@ -66,16 +76,16 @@ function fetchComments(markerUrl, eventId, userId){
             })
 
             newComment.innerHTML = `
-            <label><strong>Description:   </strong></label><br/>
+            <label><strong>Join the Discussion!</strong></label><br/>
             <textarea rows="6" cols="50" name="comment" id="comment-box" class="comment-box"></textarea>
-            <button id="submit-choice" class="submit-comment">Submit</button>
+            <button id="submit-choice-comment">Submit</button>
              `
             commentContainer.append(extraSpace)
-            const commentSubmit = document.getElementsByClassName('submit-comment')
+            const commentSubmit = document.querySelector("#submit-choice-comment")
 
             commentSubmit.addEventListener('click', e => {
                 e.preventDefault()
-                addComment(eventId, userId);
+                addComment();
             })
 
         });
@@ -83,7 +93,7 @@ function fetchComments(markerUrl, eventId, userId){
         
 }
 
-function addComment(getEventId, getUserId){
+function addComment(){
     const grabCommentUrl = `http://localhost:3000/api/v1/comments/`
 
     const usersName = document.querySelector('#welcome-user').innerText
@@ -116,11 +126,11 @@ function addComment(getEventId, getUserId){
         let div = document.createElement('div')
         let br = document.createElement('br')
         let scrollContainer = document.getElementById('scroll-container')
-        div.classList.add("individual-comment")
+        div.classList.add("user-comment")
         div.id = newComment.id
 
         div.innerHTML = `
-            <h4>${newComment.title}</h4>
+            <h4 class="comment-title">${newComment.title}</h4>
             <p>${newComment.content}</p>
         `
         let img = document.createElement('img')

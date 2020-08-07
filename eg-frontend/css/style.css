@@ -220,6 +220,18 @@ textarea {
     box-shadow: 1px 1px 5px #c7c7c7;
 }
 
+.user-comment {
+    background-color: #0284ff;
+    color: white;
+    padding: 1px;
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    clear: both;
+    box-shadow: 1px 1px 5px #c7c7c7;
+}
+
 fieldset {
     display: inline-block;
     position: relative;
