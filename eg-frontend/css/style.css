@@ -188,7 +188,7 @@ textarea {
     position: relative;
     clear: both;
     box-shadow: 1px 1px 5px #c7c7c7;
-    text-align: center;
+    text-align: left;
     font-family: Didot;
 }
 
@@ -212,10 +212,12 @@ textarea {
 .individual-comment {
     background-color: #eff2f5;
     padding: 1px;
+    padding-left: 20px;
     width: 400px;
     height: auto;
-    margin: 0 auto;
+    float:left;
     position: relative;
+    margin: 10px;
     clear: both;
     box-shadow: 1px 1px 5px #c7c7c7;
 }
@@ -224,10 +226,12 @@ textarea {
     background-color: #0284ff;
     color: white;
     padding: 1px;
+    padding-left: 20px;
     width: 400px;
     height: auto;
-    margin: 0 auto;
+    float: right;
     position: relative;
+    margin: 10px;
     clear: both;
     box-shadow: 1px 1px 5px #c7c7c7;
 }
@@ -273,9 +277,13 @@ input[type="radio"]:checked {
 
 .comment-x {
     position: absolute;
-    height: 15px;
-    width: 15px;
-    top: 2px;
-    right: 2px;
+    height: 20px;
+    width: 20px;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
+}
+
+.comment-title{
+    font-size: 19px;
 }

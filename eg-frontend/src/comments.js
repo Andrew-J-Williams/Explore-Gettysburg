@@ -46,7 +46,7 @@ function fetchComments(markerUrl, eventId, userId){
                     let img = document.createElement('img')
                     img.classList.add('comment-x')
                     img.id = commentId
-                    img.src = 'https://svgsilh.com/svg/147923.svg'
+                    img.src = 'https://i.imgur.com/dbzNiXR.png'
                     divUser.append(img)
 
                     img.addEventListener('click', e => {
@@ -136,7 +136,7 @@ function addComment(){
         let img = document.createElement('img')
         img.classList.add('comment-x')
         img.id = 'comment-x'
-        img.src = 'https://svgsilh.com/svg/147923.svg'
+        img.src = 'https://i.imgur.com/dbzNiXR.png'
         div.append(img)
 
         scrollContainer.append(div)
