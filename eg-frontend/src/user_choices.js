@@ -12,7 +12,7 @@ function createUserChoice(userAnswer, userId, eventId, scenarioId){
 
     const choice = {
        user_input: userAnswer,
-       user_Id: userId,
+       user_id: userId,
        event_id: eventId,
        scenario_id: scenarioId 
     }
@@ -26,5 +26,20 @@ function createUserChoice(userAnswer, userId, eventId, scenarioId){
     .then(newChoice => {
         console.log(newChoice)
     })
+
+}
+
+function fetchUserChoices(){
+    const choicesUrl = `http://localhost:3000/api/v1/user_choices/`
+
+    fetch(choicesUrl)
+    .then(response => response.json())
+    .then(data => {
+        const grabUserChoice = data.find(x => x.user_id === 3)
+
+        console.log(grabUserChoice.user_input)
+    })
+
+
 
 }

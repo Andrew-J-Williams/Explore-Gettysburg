@@ -9,6 +9,10 @@ function fetchScenario(markerUrl){
         const option_two = data.option_two
         const answer_one = data.answer_one
         const answer_two = data.answer_two
+        const grabUserId = document.getElementById('hidden-user-id').innerText
+        const grabEventId = document.getElementById('hidden-event-id').innerText
+        const returnUserId = parseInt(grabUserId, 10)
+        const returnEventId = parseInt(grabEventId, 10)
 
         scenarioContainer.innerHTML = `
         <h2>${scenario_desc}</h2>
@@ -23,17 +27,18 @@ function fetchScenario(markerUrl){
         `
         const submitButton = document.querySelector("#submit-choice")
         submitButton.addEventListener('click', e => {
-            const grabUserId = document.getElementById('hidden-user-id').innerText
-            const returnUserId = parseInt(grabUserId, 10)
             
             if (document.getElementById('radio1').checked){
                 scenarioContainer.innerHTML = `
                     <h2>${scenario_desc}</h2>
                     <p id="answer-one" class="info-text">${answer_one}</p>
                 `
-                //createUserChoice(answer_one, returnUserId, ,scenarioId);
-                console.log(scenarioId)
-                console.log(returnUserId)
+                //createUserChoice(answer_one, returnUserId, returnEventId,scenarioId);
+                //console.log(answer_one)
+                //console.log(returnUserId)
+                //console.log(returnEventId)
+                //console.log(scenarioId)
+                fetchUserChoices()
 
             } else if (document.getElementById('radio2').checked){
 
