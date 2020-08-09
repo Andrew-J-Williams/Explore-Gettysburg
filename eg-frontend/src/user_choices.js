@@ -39,14 +39,30 @@ function fetchUserChoices(url, eventId){
     .then(response => response.json())
     .then(data => {
         const specificEvent = data.find(x => x.user_id === selectUserId && x.event_id === eventId)
+        const userChoiceId = specificEvent.id
 
         if (specificEvent){
             const scenarioContainer = document.querySelector("#scenario-container")
             
             scenarioContainer.innerHTML = `
+            <h2>Your Battle Decision Result: </h2>
             <p class="info-text">${specificEvent.user_input}</p>
+            <button id="edit-choice" class="edit-choice">Edit Choice</button>
+            <p class="info-text"></p>
             `
             console.log(specificEvent)
+
+            const choiceButton = document.getElementById("edit-choice")
+            choiceButton.addEventListener('click', e => {
+                e.preventDefault();
+                const adjustScenarioUrl = `http://localhost:3000/api/v1/scenarios/${eventId}`
+                scenarioContainer.innerHTML = ``
+                scenarioContainer.innerHTML = `
+                <p class="hidden-choice-id">${userChoiceId}</p>
+                `
+                fetchScenario(adjustScenarioUrl, eventId);
+            })
+
         } else {
             fetchScenario(url, eventId)
         }
@@ -55,4 +71,12 @@ function fetchUserChoices(url, eventId){
 
 
 
+}
+
+function editUserChoice(choiceId){
+    const specificChoiceUrl = `http://localhost:3000/api/v1/user_choices/${choiceId}`
+
+    const choice = {
+
+    }
 }
