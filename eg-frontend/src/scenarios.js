@@ -1,4 +1,4 @@
-function fetchScenario(markerUrl, eventId){
+function fetchScenario(markerUrl, eventId, userChoice){
     fetch(markerUrl)
     .then(response => response.json())
     .then(data => {
@@ -33,7 +33,11 @@ function fetchScenario(markerUrl, eventId){
                     <h2>${scenario_desc}</h2>
                     <p id="answer-one" class="info-text">${answer_one}</p>
                 `
-                //createUserChoice(answer_one, returnUserId, returnEventId,scenarioId);
+
+                if (userChoice){
+                    editUserChoice(userChoice.id, answer_one);
+                }
+                //createUserChoice(answer_one, returnUserId, returnEventId, scenarioId);
                 //console.log(answer_one)
                 //console.log(returnUserId)
                 //console.log(returnEventId)
@@ -46,6 +50,9 @@ function fetchScenario(markerUrl, eventId){
                 <h2>${scenario_desc}</h2>
                 <p id="answer-two" class="info-text">${answer_two}</p>
             `
+                if (userChoice){
+                    editUserChoice(userChoice.id, answer_two);
+                }
                 //createUserChoice(answer_one, returnUserId, returnEventId,scenarioId);
                 //console.log(answer_one)
                 //console.log(returnUserId)

@@ -11,6 +11,13 @@ class Api::V1::UserChoicesController < ApplicationController
         render json: @user_choice
     end
 
+    def update 
+        @user_choice = UserChoice.find(params[:id])
+        if @user_choice.update(user_choice_params)
+            render json: @user_choice.to_json, status: 200
+        end
+    end
+
     private 
 
     def user_choice_params

@@ -57,10 +57,7 @@ function fetchUserChoices(url, eventId){
                 e.preventDefault();
                 const adjustScenarioUrl = `http://localhost:3000/api/v1/scenarios/${eventId}`
                 scenarioContainer.innerHTML = ``
-                scenarioContainer.innerHTML = `
-                <p class="hidden-choice-id">${userChoiceId}</p>
-                `
-                fetchScenario(adjustScenarioUrl, eventId);
+                fetchScenario(adjustScenarioUrl, eventId, specificEvent);
             })
 
         } else {
@@ -73,10 +70,20 @@ function fetchUserChoices(url, eventId){
 
 }
 
-function editUserChoice(choiceId){
+function editUserChoice(choiceId, userAnswer){
     const specificChoiceUrl = `http://localhost:3000/api/v1/user_choices/${choiceId}`
 
     const choice = {
-
+        user_input: userAnswer
     }
+
+    fetch(specificChoiceUrl, {
+        method: "PATCH",
+        body: JSON.stringify(choice),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+    })
+    .then(resp => resp.json())
+    .then(editChoice => {
+        console.log(editChoice)
+    })
 }
