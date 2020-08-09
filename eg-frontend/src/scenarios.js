@@ -46,7 +46,12 @@ function fetchScenario(markerUrl){
                 <h2>${scenario_desc}</h2>
                 <p id="answer-two" class="info-text">${answer_two}</p>
             `
-
+                //createUserChoice(answer_one, returnUserId, returnEventId,scenarioId);
+                //console.log(answer_one)
+                //console.log(returnUserId)
+                //console.log(returnEventId)
+                //console.log(scenarioId)
+                fetchUserChoices()
             }
         })
     });
