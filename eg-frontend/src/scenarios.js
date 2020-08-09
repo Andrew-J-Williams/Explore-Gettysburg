@@ -30,35 +30,27 @@ function fetchScenario(markerUrl, eventId, userChoice){
 
             if (document.getElementById('radio1').checked){
                 scenarioContainer.innerHTML = `
-                    <h2>${scenario_desc}</h2>
+                    <h2>Your Battle Decision Result: </h2>
                     <p id="answer-one" class="info-text">${answer_one}</p>
                 `
 
-                if (userChoice){
+                if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_one);
+                } else {
+                    createUserChoice(answer_one, returnUserId, returnEventId,scenarioId);
                 }
-                //createUserChoice(answer_one, returnUserId, returnEventId, scenarioId);
-                //console.log(answer_one)
-                //console.log(returnUserId)
-                //console.log(returnEventId)
-                //console.log(scenarioId)
-                //fetchUserChoices()
 
             } else if (document.getElementById('radio2').checked){
 
                 scenarioContainer.innerHTML = `
-                <h2>${scenario_desc}</h2>
+                <h2>Your Battle Decision Result: </h2>
                 <p id="answer-two" class="info-text">${answer_two}</p>
             `
-                if (userChoice){
+                if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_two);
+                } else {
+                    createUserChoice(answer_two, returnUserId, returnEventId,scenarioId);
                 }
-                //createUserChoice(answer_one, returnUserId, returnEventId,scenarioId);
-                //console.log(answer_one)
-                //console.log(returnUserId)
-                //console.log(returnEventId)
-                //console.log(scenarioId)
-                //fetchUserChoices()
             }
         })
     });
