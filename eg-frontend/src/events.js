@@ -3,7 +3,6 @@
         .then(response => response.json())
         .then(data => {
             const infoContainer = document.querySelector("#info-container")
-            eventValue = data.id
 
             infoContainer.innerHTML = `
             <h2>${data.name}</h2>

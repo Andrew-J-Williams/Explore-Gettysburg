@@ -1,4 +1,4 @@
-function fetchScenario(markerUrl){
+function fetchScenario(markerUrl, eventId){
     fetch(markerUrl)
     .then(response => response.json())
     .then(data => {
@@ -10,7 +10,7 @@ function fetchScenario(markerUrl){
         const answer_one = data.answer_one
         const answer_two = data.answer_two
         const grabUserId = document.getElementById('hidden-user-id').innerText
-        const grabEventId = document.getElementById('hidden-event-id').innerText
+        const grabEventId = eventId
         const returnUserId = parseInt(grabUserId, 10)
         const returnEventId = parseInt(grabEventId, 10)
 
@@ -27,7 +27,7 @@ function fetchScenario(markerUrl){
         `
         const submitButton = document.querySelector("#submit-choice")
         submitButton.addEventListener('click', e => {
-            
+
             if (document.getElementById('radio1').checked){
                 scenarioContainer.innerHTML = `
                     <h2>${scenario_desc}</h2>
@@ -38,7 +38,7 @@ function fetchScenario(markerUrl){
                 //console.log(returnUserId)
                 //console.log(returnEventId)
                 //console.log(scenarioId)
-                fetchUserChoices()
+                //fetchUserChoices()
 
             } else if (document.getElementById('radio2').checked){
 
@@ -51,7 +51,7 @@ function fetchScenario(markerUrl){
                 //console.log(returnUserId)
                 //console.log(returnEventId)
                 //console.log(scenarioId)
-                fetchUserChoices()
+                //fetchUserChoices()
             }
         })
     });

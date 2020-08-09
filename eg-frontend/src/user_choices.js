@@ -31,13 +31,19 @@ function createUserChoice(userAnswer, userId, eventId, scenarioId){
 
 function fetchUserChoices(){
     const choicesUrl = `http://localhost:3000/api/v1/user_choices/`
+    const eventUserId = document.getElementById('hidden-user-id').innerText
+    const selectUserId = parseInt(eventUserId, 10)
+
 
     fetch(choicesUrl)
     .then(response => response.json())
     .then(data => {
-        const grabUserChoice = data.find(x => x.user_id === 3)
+        if (data.find(x => x.user_id === selectUserId)){
+            const scenarioContainer = document.querySelector("#scenario-container")
+            
+            scenarioContainer.innerHTML = `<h1>TESTING</h1>`
+        }
 
-        console.log(grabUserChoice.user_input)
     })
 
 

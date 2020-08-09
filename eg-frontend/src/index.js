@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', e => {
     
     let userStatus = false;
     let userId;
-    let eventValue;
+    //let eventValue;
 
 
 
@@ -74,12 +74,11 @@ window.addEventListener('DOMContentLoaded', e => {
         const eventUrl = `http://localhost:3000/api/v1/events/${numValue}`
         const scenarioUrl = `http://localhost:3000/api/v1/scenarios/${numValue}`
         const commentUrl = `http://localhost:3000/api/v1/comments/`
-        eventValue = numValue
 
         clearContainers();
-        fetchEvent(eventUrl, eventValue);
+        fetchEvent(eventUrl, numValue);
         if (userStatus == true){
-            fetchScenario(scenarioUrl);
+            fetchScenario(scenarioUrl, numValue);
             fetchComments(commentUrl, numValue, userId);
         } else {
             fetchLoginReminder()
