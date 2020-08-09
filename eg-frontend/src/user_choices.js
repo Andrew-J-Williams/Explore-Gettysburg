@@ -29,7 +29,7 @@ function createUserChoice(userAnswer, userId, eventId, scenarioId){
 
 }
 
-function fetchUserChoices(){
+function fetchUserChoices(url, eventId){
     const choicesUrl = `http://localhost:3000/api/v1/user_choices/`
     const eventUserId = document.getElementById('hidden-user-id').innerText
     const selectUserId = parseInt(eventUserId, 10)
@@ -38,10 +38,17 @@ function fetchUserChoices(){
     fetch(choicesUrl)
     .then(response => response.json())
     .then(data => {
-        if (data.find(x => x.user_id === selectUserId)){
+        const specificEvent = data.find(x => x.user_id === selectUserId && x.event_id === eventId)
+
+        if (specificEvent){
             const scenarioContainer = document.querySelector("#scenario-container")
             
-            scenarioContainer.innerHTML = `<h1>TESTING</h1>`
+            scenarioContainer.innerHTML = `
+            <p class="info-text">${specificEvent.user_input}</p>
+            `
+            console.log(specificEvent)
+        } else {
+            fetchScenario(url, eventId)
         }
 
     })

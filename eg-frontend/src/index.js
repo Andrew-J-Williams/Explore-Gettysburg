@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', e => {
         clearContainers();
         fetchEvent(eventUrl, numValue);
         if (userStatus == true){
-            fetchScenario(scenarioUrl, numValue);
+            fetchUserChoices(scenarioUrl,numValue);
             fetchComments(commentUrl, numValue, userId);
         } else {
             fetchLoginReminder()
