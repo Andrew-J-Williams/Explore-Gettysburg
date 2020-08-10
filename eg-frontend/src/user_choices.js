@@ -39,7 +39,6 @@ function fetchUserChoices(url, eventId){
     .then(response => response.json())
     .then(data => {
         const specificEvent = data.find(x => x.user_id === selectUserId && x.event_id === eventId)
-        const userChoiceId = specificEvent.id
 
         if (specificEvent){
             const scenarioContainer = document.querySelector("#scenario-container")
@@ -86,4 +85,32 @@ function editUserChoice(choiceId, userAnswer){
     .then(editChoice => {
         console.log(editChoice)
     })
+}
+
+function choiceBreakdown(userChoiceOne, userChoiceTwo){
+    const choicesUrl = `http://localhost:3000/api/v1/user_choices/`
+
+    fetch(choicesUrl)
+        .then(response => response.json())
+        .then(data => {
+            const scenarioContainer = document.querySelector("#scenario-container")
+
+            const choiceOne = data.filter(x => x.user_input === userChoiceOne)
+            const choiceTwo = data.filter(x => x.user_input === userChoiceTwo)
+            const totalChoices = (choiceOne.length) + (choiceTwo.length)
+            const h3 = document.createElement('h3')
+            const p = document.createElement('p')
+            p.classList.add("info-text")
+            const choiceOnePer = (choiceOne.length/totalChoices) * 100
+            const choiceTwoPer = (choiceTwo.length/totalChoices) * 100
+
+            h3.innerText = `All User Choice Results:`
+            p.innerText = `Choice 1: ${choiceOnePer}%   |   Choice 2: ${choiceTwoPer}%`
+            scenarioContainer.append(h3)
+            scenarioContainer.append(p)
+       
+            console.log(choiceOne.length)
+            console.log(choiceTwo.length)
+            console.log(totalChoices)
+        })
 }

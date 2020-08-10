@@ -33,11 +33,11 @@ function fetchScenario(markerUrl, eventId, userChoice){
                     <h2>Your Battle Decision Result: </h2>
                     <p id="answer-one" class="info-text">${answer_one}</p>
                 `
-
+                choiceBreakdown(answer_one, answer_two)
                 if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_one);
                 } else {
-                    createUserChoice(answer_one, returnUserId, returnEventId,scenarioId);
+                    createUserChoice(answer_one, returnUserId, returnEventId, scenarioId);
                 }
 
             } else if (document.getElementById('radio2').checked){
@@ -46,10 +46,11 @@ function fetchScenario(markerUrl, eventId, userChoice){
                 <h2>Your Battle Decision Result: </h2>
                 <p id="answer-two" class="info-text">${answer_two}</p>
             `
+                choiceBreakdown(answer_one, answer_two)
                 if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_two);
                 } else {
-                    createUserChoice(answer_two, returnUserId, returnEventId,scenarioId);
+                    createUserChoice(answer_two, returnUserId, returnEventId, scenarioId);
                 }
             }
         })
