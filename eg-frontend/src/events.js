@@ -6,9 +6,23 @@
 
             infoContainer.innerHTML = `
             <h2>${data.name}</h2>
-            <h3>${data.date}</h3>
-            <h5>Union General: ${data.union_leader} (${data.union_army} men)</h5>
-            <h5>Confederate General: ${data.confederate_leader} (${data.confederate_army} men)</h5>
+            <div class="total">
+            <div class="date-box">
+                <h3>Date: </h3>
+                <h3><i>${data.date}</i></h3>
+            </div>
+            <div class="box">
+                <div class="left-side">
+                    <h4>Union General: </h4>
+                    <p><i>${data.union_leader}</i></p>
+                </div>
+                <br><br>
+                <div class="right-side">
+                    <h4>Confederate General: </h4>
+                    <p><i>${data.confederate_leader}</i></p>
+                </div>
+            </div>
+            </div>
             <img src="https://padresteve.files.wordpress.com/2014/05/z_maritato_ironbrigadeforward1.jpg?w=584" class="event-image">
             <div class="description-section">
             <p class="info-text">${data.description}</p>
