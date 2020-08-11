@@ -18,15 +18,15 @@
 #red-marker1 {
     display: block;
     position: absolute;
-    top: -300px;
-    left: 400px;
+    top: -960px;
+    left: 270px;
 }
 
 #red-marker1:hover {
     display: block;
     position: absolute;
-    top: -310px;
-    left: 390px;
+    top: -970px;
+    left: 260px;
 }
 
 #red-marker2 {

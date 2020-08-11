@@ -15,7 +15,9 @@ function fetchScenario(markerUrl, eventId, userChoice){
         const returnEventId = parseInt(grabEventId, 10)
 
         scenarioContainer.innerHTML = `
-        <h2>${scenario_desc}</h2>
+        <h2>You Make the Call!</h2>
+
+        <p>${data.description}</p>
         <fieldset>
             <legend><b> Battle Decision </b></legend>
             <div><label for="radio1"><input type="radio" name="rad" value="1" id="radio1">${option_one}</label></div>

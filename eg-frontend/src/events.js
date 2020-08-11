@@ -7,7 +7,11 @@
             infoContainer.innerHTML = `
             <h2>${data.name}</h2>
             <h3>${data.date}</h3>
+            <h5>Union General: ${data.union_leader} (${data.union_army} men)</h5>
+            <h5>Confederate General: ${data.confederate_leader} (${data.confederate_army} men)</h5>
+            <div class="description-section">
             <p class="info-text">${data.description}</p>
+            </div>
             <p id="hidden-event-id" class="hidden-event-id">${data.id}</p>
 
             `

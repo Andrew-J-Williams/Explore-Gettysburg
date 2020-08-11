@@ -287,3 +287,7 @@ input[type="radio"]:checked {
 .comment-title{
     font-size: 19px;
 }
+
+.description-section {
+    text-align: left;
+}
