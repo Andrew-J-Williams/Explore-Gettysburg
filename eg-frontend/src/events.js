@@ -9,6 +9,7 @@
             <h3>${data.date}</h3>
             <h5>Union General: ${data.union_leader} (${data.union_army} men)</h5>
             <h5>Confederate General: ${data.confederate_leader} (${data.confederate_army} men)</h5>
+            <img src="https://padresteve.files.wordpress.com/2014/05/z_maritato_ironbrigadeforward1.jpg?w=584" class="event-image">
             <div class="description-section">
             <p class="info-text">${data.description}</p>
             </div>

@@ -291,3 +291,9 @@ input[type="radio"]:checked {
 .description-section {
     text-align: left;
 }
+
+.event-image{
+    max-width: 400px;
+    max-height: 200px;
+    box-shadow: 1px 1px 5px #c7c7c7;
+}
