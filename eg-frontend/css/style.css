@@ -163,7 +163,7 @@ textarea {
     height: auto;
     box-shadow: 1px 1px 5px #c7c7c7;
     text-align: center;
-    font-family: Didot; 
+    font-family: Didot;
 }
 
 .scenario-container {
@@ -294,8 +294,12 @@ input[type="radio"]:checked {
 
 .event-image{
     max-width: 400px;
-    max-height: 200px;
+    max-height: 250px;
     box-shadow: 1px 1px 5px #c7c7c7;
+    clear: both;
+    padding: 10px;
+    border: 1px solid gray;
+    background-color: white;
 }
 
 .box {
@@ -304,6 +308,7 @@ input[type="radio"]:checked {
     display: flex;
     top: 15px;
     border-top: hidden;
+    box-shadow: 1px 1px 5px #c7c7c7;
 }
 
 .date-box {
@@ -311,6 +316,7 @@ input[type="radio"]:checked {
     width: auto;
     margin: 0 auto;
     position: relative;
+    background-color: white;
 }
 
 .left-side {
@@ -323,6 +329,7 @@ input[type="radio"]:checked {
     border-top: hidden;
     width: 50%;
     overflow: hidden;
+    background-color: white;
 }
 
 .right-side {
@@ -334,11 +341,25 @@ input[type="radio"]:checked {
     border-top: hidden;
     width: 50%;
     overflow: hidden;
+    background-color: white;
 }
 
 .total {
     width: 400px;
-    margin: 0 auto;
+    margin: auto;
     height: auto;
+    box-shadow: 1px 1px 5px #c7c7c7;
+    padding: 8px;
+    border: 1px solid gray;
+    background-color: linen;
+}
+
+.event-title {
+    background-color: #084572;
+    color: white;
+    height: auto;
+    border: 1px solid gray;
+    font-style: italic;
+    font-style: bold;
     box-shadow: 1px 1px 5px #c7c7c7;
 }

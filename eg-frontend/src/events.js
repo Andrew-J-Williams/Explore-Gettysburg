@@ -5,11 +5,16 @@
             const infoContainer = document.querySelector("#info-container")
 
             infoContainer.innerHTML = `
-            <h2>${data.name}</h2>
+            <br>
+            <br>
             <div class="total">
+            <div class="event-title">
+                <h2>${data.name}</h2>
+            </div>
+            <br>
             <div class="date-box">
                 <h3>Date: </h3>
-                <h3><i>${data.date}</i></h3>
+                <p><i>${data.date}</i></p>
             </div>
             <div class="box">
                 <div class="left-side">
@@ -22,8 +27,19 @@
                     <p><i>${data.confederate_leader}</i></p>
                 </div>
             </div>
+            <div class="box">
+                <div class="left-side">
+                    <h4>Union Army: </h4>
+                    <p><i>${data.union_army}</i></p>
+                </div>
+                <div class="right-side">
+                    <h4>Confederate Army: </h4>
+                    <p><i>${data.confederate_army}</i></p>
+                </div>
             </div>
+            <br>
             <img src="https://padresteve.files.wordpress.com/2014/05/z_maritato_ironbrigadeforward1.jpg?w=584" class="event-image">
+            </div>
             <div class="description-section">
             <p class="info-text">${data.description}</p>
             </div>
