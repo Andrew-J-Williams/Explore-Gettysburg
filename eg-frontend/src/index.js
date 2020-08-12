@@ -130,7 +130,7 @@ window.addEventListener('DOMContentLoaded', e => {
         <input type="text" id="user-name-spot" class="user-name-spot"/>
         <br><br>
         <label><b>Password: </b></label>
-        <input type="text" id="password-spot" class="password-spot"/>
+        <input type="password" id="password-spot" class="password-spot"/>
         <br><br>
         <button id="log-in-button" class="log-in-button">Log In</button>
         <br><br>

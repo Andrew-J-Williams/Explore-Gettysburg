@@ -3,6 +3,8 @@
         .then(response => response.json())
         .then(data => {
             const infoContainer = document.querySelector("#info-container")
+            const picture = data.url
+            console.log(picture)
 
             infoContainer.innerHTML = `
             <br>
@@ -38,13 +40,12 @@
                 </div>
             </div>
             <br>
-            <img src="https://padresteve.files.wordpress.com/2014/05/z_maritato_ironbrigadeforward1.jpg?w=584" class="event-image">
+            <img src=${data.url} class="event-image">
             </div>
             <div class="description-section">
             <p class="info-text">${data.description}</p>
             </div>
             <p id="hidden-event-id" class="hidden-event-id">${data.id}</p>
-
             `
             let myTest = document.getElementById('hidden-event-id').innerText
             console.log(myTest)
