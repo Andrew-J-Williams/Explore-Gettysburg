@@ -293,7 +293,7 @@ input[type="radio"]:checked {
 }
 
 .event-image{
-    max-width: 400px;
+    max-width: 375px;
     max-height: 250px;
     box-shadow: 1px 1px 5px #c7c7c7;
     clear: both;
