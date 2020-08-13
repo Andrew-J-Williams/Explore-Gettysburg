@@ -60,14 +60,14 @@
 #blue-marker1 {
     display: block;
     position: absolute;
-    top: -900px;
+    top: -560px;
     left: 500px;
 }
 
 #blue-marker1:hover {
     display: block;
     position: absolute;
-    top: -910px;
+    top: -570px;
     left: 490px;
 }
 

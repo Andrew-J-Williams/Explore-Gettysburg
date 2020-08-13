@@ -39,8 +39,8 @@ textarea {
 .main {
     background-color: linen;
     padding-top: 30px;
-    position: relative;
-    top: -670px;
+    position: absolute;
+    top: 370px;
     bottom: 0px;
     height: 600px;
     width: 100%;
@@ -102,10 +102,10 @@ textarea {
 }
 
 .eagle-shield {
-    position: relative;
+    position: absolute;
     opacity: 20%;
     left: 770px;
-    top: -330px
+    top: -80px
 }
 
 .flag-logo {
@@ -138,10 +138,10 @@ textarea {
 
 .borderline {
     height: 5px;
-    position: relative;
+    position: absolute;
     background-color: #0a2e52;
     width: 100%;
-    top: -670px;
+    top: 365px;
 }
 
 .map-of-gettysburg {
@@ -181,15 +181,18 @@ textarea {
 
 .comment-container {
     background-color: white;
-    bottom: 1645px;
+    bottom: -1228px;
     left: 40px;
     width: 788px;
     height: auto;
-    position: relative;
+    position: absolute;
+    z-index: 3000;
     display: block;
     box-shadow: 1px 1px 5px #c7c7c7;
     text-align: left;
     font-family: Didot;
+    margin: auto;
+    clear: both;
 }
 
 .new-comment-container {
