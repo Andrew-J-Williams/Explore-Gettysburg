@@ -29,6 +29,11 @@ textarea {
     resize: none; 
 }
 
+.full-container{
+    position: relative;
+    bottom: 350px;
+}
+
 .info-text {
     padding-top: 20px;
     padding-left: 20px;
@@ -104,8 +109,8 @@ textarea {
 .eagle-shield {
     position: absolute;
     opacity: 20%;
-    left: 600px;
-    top: -140px
+    left: 700px;
+    top: -135px
 }
 
 .flag-logo {
@@ -181,7 +186,7 @@ textarea {
 
 .comment-container {
     background-color: white;
-    bottom: -1228px;
+    bottom: -1300px;
     left: 40px;
     width: 788px;
     height: auto;
@@ -189,9 +194,8 @@ textarea {
     z-index: 3000;
     display: block;
     box-shadow: 1px 1px 5px #c7c7c7;
-    text-align: left;
     font-family: Didot;
-    margin: 0 auto;
+    margin-top: 10px;
     clear: both;
 }
 
@@ -204,12 +208,24 @@ textarea {
 }
 
 .scroll-container {
-    padding-top: 15px;
-    padding-bottom: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     overflow-y: scroll;
     height: 250px;
     position: relative;
-    top: 20px;
+    top: 10px;
+    border: 1px solid gray;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.comment-header{
+    text-align: center;
+}
+
+.comment-h3{
+    font-size: 23px;
+    font-style: italic;
 }
 
 .individual-comment {
@@ -222,6 +238,7 @@ textarea {
     position: relative;
     margin: 10px;
     clear: both;
+    text-align: left;
     box-shadow: 1px 1px 5px #c7c7c7;
 }
 

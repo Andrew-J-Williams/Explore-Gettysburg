@@ -15,6 +15,9 @@ function fetchComments(markerUrl, eventId, userId){
             const scrollSection = document.createElement('div')
             const newComment = document.createElement('div')
             const extraSpace = document.createElement('p')
+            const h3 = document.createElement('h3')
+            h3.classList.add("comment-h3")
+            const commentHeader = document.createElement('div')
             scrollSection.classList.add("scroll-container")
             scrollSection.id = "scroll-container"
             newComment.classList.add("new-comment-container")
@@ -22,7 +25,11 @@ function fetchComments(markerUrl, eventId, userId){
             extraSpace.classList.add("info-text")
             const currentUserId = document.getElementById("hidden-user-id").innerText
             const addUserId = parseInt(currentUserId, 10)
+            h3.innerText = `Join the Discussion!`
+            commentHeader.classList.add("comment-header")
 
+            commentHeader.append(h3)
+            commentContainer.append(commentHeader)
             commentContainer.append(scrollSection)
             commentContainer.append(newComment)
 
