@@ -181,12 +181,12 @@ textarea {
 
 .comment-container {
     background-color: white;
-    bottom: 1200px;
-    right: -860px;
-    width: 500px;
+    bottom: 1645px;
+    left: 40px;
+    width: 788px;
     height: auto;
     position: relative;
-    clear: both;
+    display: block;
     box-shadow: 1px 1px 5px #c7c7c7;
     text-align: left;
     font-family: Didot;
