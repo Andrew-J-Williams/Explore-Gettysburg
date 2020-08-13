@@ -37,7 +37,10 @@ function fetchComments(markerUrl, eventId, userId){
                 let div = document.createElement('div')
                 let divUser = document.createElement('div')
                 let br = document.createElement('br')
+                let h4 = document.createElement('h4')
+                let p = document.createElement('p')
                 div.classList.add("individual-comment")
+                h4.classList.add("comment-title")
                 divUser.classList.add("user-comment")
                 let commentId = comment.id
                 div.id = commentId
@@ -45,10 +48,13 @@ function fetchComments(markerUrl, eventId, userId){
 
 
                 if (comment.event_id === eventId && addUserId === comment.user_id){
-                    divUser.innerHTML = `
-                        <h4 class="comment-title">${comment.title}</h4>
-                        <p>${comment.content}</p>
-                    `
+    
+                    h4.innerText = `${comment.title}`
+                    p.innerText = `${comment.content}`
+
+                    divUser.append(h4)
+                    divUser.append(p)
+
                     let img = document.createElement('img')
                     img.classList.add('comment-x')
                     img.id = commentId
@@ -66,10 +72,11 @@ function fetchComments(markerUrl, eventId, userId){
                     scrollSection.append(divUser)
                     scrollSection.append(br)
                 } else if (comment.event_id === eventId && addUserId != comment.user_id){
-                    div.innerHTML = `
-                        <h4 class="comment-title">${comment.title}</h4>
-                        <p>${comment.content}</p>
-                    `
+                    h4.innerText = `${comment.title}`
+                    p.innerText = `${comment.content}`
+
+                    div.append(h4)
+                    div.append(p)
 
                     scrollSection.append(br)
                     scrollSection.append(div)
@@ -144,6 +151,12 @@ function addComment(){
         img.id = 'comment-x'
         img.src = 'https://i.imgur.com/dbzNiXR.png'
         div.append(img)
+
+        img.addEventListener('click', e => {
+            e.preventDefault()
+            console.log(newComment)
+            deleteComment(newComment, e)
+        })
 
         scrollContainer.append(div)
         scrollContainer.append(br)
