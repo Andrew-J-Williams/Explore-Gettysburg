@@ -67,7 +67,6 @@ function fetchComments(markerUrl, eventId, userId){
                         deleteComment(comment, e)
                     })
                     
-                    
                     scrollSection.append(br)
                     scrollSection.append(divUser)
                     scrollSection.append(br)
@@ -78,6 +77,12 @@ function fetchComments(markerUrl, eventId, userId){
                     div.append(h4)
                     div.append(p)
 
+                    let btn = document.createElement('button')
+                    btn.classList.add("reply-button")
+                    btn.id = comment.id
+                    btn.innerText = `Reply`
+                    div.append(btn)
+                    
                     scrollSection.append(br)
                     scrollSection.append(div)
                     scrollSection.append(br)
@@ -182,4 +187,8 @@ function deleteComment(comment, event){
 
 function eraseText() {
     document.getElementById("comment-box").value = "";
+}
+
+function replyToComment {
+
 }
