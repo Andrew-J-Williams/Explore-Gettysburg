@@ -82,7 +82,7 @@ function fetchComments(markerUrl, eventId, userId){
             })
 
             newComment.innerHTML = `
-            <textarea rows="6" cols="50" name="comment" id="comment-box" class="comment-box"></textarea>
+            <textarea rows="6" cols="50" name="comment" id="comment-box" class="comment-box" placeholder="Write a comment..."></textarea>
             <button id="submit-choice-comment">Submit</button>
              `
             commentContainer.append(extraSpace)
@@ -91,6 +91,7 @@ function fetchComments(markerUrl, eventId, userId){
             commentSubmit.addEventListener('click', e => {
                 e.preventDefault()
                 addComment();
+                eraseText();
             })
 
         });
@@ -164,4 +165,8 @@ function deleteComment(comment, event){
     .then(data => {
         event.target.parentElement.remove()
     })
+}
+
+function eraseText() {
+    document.getElementById("comment-box").value = "";
 }
