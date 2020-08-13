@@ -124,7 +124,6 @@ window.addEventListener('DOMContentLoaded', e => {
 
         logInContainer.append(innerDiv)
         innerDiv.innerHTML = `
-        <br>
         <h3><i>Create or Enter and Existing Account</i></h3>
         <label><b>Username: </b></label>
         <input type="text" id="user-name-spot" class="user-name-spot"/>
@@ -133,7 +132,6 @@ window.addEventListener('DOMContentLoaded', e => {
         <input type="password" id="password-spot" class="password-spot"/>
         <br><br>
         <button id="log-in-button" class="log-in-button">Log In</button>
-        <br><br>
         `
         const logInButton = document.querySelector('#log-in-button')
 

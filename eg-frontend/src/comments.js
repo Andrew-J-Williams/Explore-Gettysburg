@@ -23,7 +23,6 @@ function fetchComments(markerUrl, eventId, userId){
             const currentUserId = document.getElementById("hidden-user-id").innerText
             const addUserId = parseInt(currentUserId, 10)
 
-
             commentContainer.append(scrollSection)
             commentContainer.append(newComment)
 
@@ -76,7 +75,6 @@ function fetchComments(markerUrl, eventId, userId){
             })
 
             newComment.innerHTML = `
-            <label><strong>Join the Discussion!</strong></label><br/>
             <textarea rows="6" cols="50" name="comment" id="comment-box" class="comment-box"></textarea>
             <button id="submit-choice-comment">Submit</button>
              `
