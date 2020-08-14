@@ -66,9 +66,22 @@ function fetchComments(markerUrl, eventId, userId){
                         console.log(comment)
                         deleteComment(comment, e)
                     })
-                    
+
+                    const replyDiv = document.createElement('div')
+                    replyDiv.classList.add("reply-div")
+                    replyDiv.id = comment.id
+
+                    replyDiv.innerHTML = `
+                    <button class="accordion">Replies (100)</button>
+                    <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    `
+
+
                     scrollSection.append(br)
                     scrollSection.append(divUser)
+                    scrollSection.append(replyDiv)
                     scrollSection.append(br)
                 } else if (comment.event_id === eventId && addUserId != comment.user_id){
                     h4.innerText = `${comment.title}`
@@ -82,6 +95,11 @@ function fetchComments(markerUrl, eventId, userId){
                     btn.id = comment.id
                     btn.innerText = `Reply`
                     div.append(btn)
+
+                    btn.addEventListener('click', e => {
+                        e.preventDefault();
+                        replyToComment(btn.id, comment.id, comment.title)
+                    })
                     
                     scrollSection.append(br)
                     scrollSection.append(div)
@@ -189,6 +207,12 @@ function eraseText() {
     document.getElementById("comment-box").value = "";
 }
 
-function replyToComment {
+function replyToComment(buttonId, commentId, userName) {
+    const btnId = parseInt(buttonId, 10)
+    console.log(btnId)
+    const tex = document.getElementById("comment-box")
 
+    if (btnId === commentId){
+        tex.innerText = `@${userName}`
+    }
 }

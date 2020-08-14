@@ -412,3 +412,8 @@ input[type="radio"]:checked {
     margin-right: 15px;
     float: right;
 }
+
+.reply-div {
+    text-align: right;
+    margin-right: 15px;
+}
