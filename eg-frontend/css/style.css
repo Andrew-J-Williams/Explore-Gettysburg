@@ -331,6 +331,15 @@ input[type="radio"]:checked {
     vertical-align: middle;
 }
 
+#submit-reply-choice {
+    font-size: 18px;
+    margin-top: 7px;
+    left: 410px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .description-section {
     text-align: left;
 }

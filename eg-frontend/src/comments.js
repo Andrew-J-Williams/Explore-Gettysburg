@@ -89,7 +89,7 @@ function fetchComments(markerUrl, eventId, userId){
                         e.preventDefault();
                         //replyToComment(btn.id, comment.id, comment.title)
                         //createReply(comment.title, comment.id);
-                        prepareReply(comment.title);
+                        prepareReply(comment.title, comment.id);
                     })
                     
                     scrollSection.append(br)
@@ -102,18 +102,23 @@ function fetchComments(markerUrl, eventId, userId){
                 }
             })
 
+            const submitButton = document.createElement('button')
+            submitButton.id = "submit-choice-comment"
+            submitButton.innerText = `Submit`
+
             newComment.innerHTML = `
             <textarea rows="6" cols="50" name="comment" id="comment-box" class="comment-box" placeholder="Write a comment..."></textarea>
-            <button id="submit-choice-comment">Submit</button>
              `
+            newComment.append(submitButton) 
+            
             commentContainer.append(extraSpace)
             const commentSubmit = document.querySelector("#submit-choice-comment")
 
-            commentSubmit.addEventListener('click', e => {
-                e.preventDefault()
-                addComment();
-                eraseText();
-            })
+                commentSubmit.addEventListener('click', e => {
+                    e.preventDefault()
+                    addComment();
+                    eraseText();
+                })
 
         });
 

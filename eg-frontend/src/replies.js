@@ -63,15 +63,25 @@ function createReply(commentName, commentId){
 
 }
 
-function prepareReply(commentName){
+function prepareReply(commentName, commentId){
     console.log(`test successful`)
 
     const replyBox = document.getElementById("comment-box")
-    const replyButton = document.getElementById("submit-choice-comment")
+    const replyButton = document.querySelector("#submit-choice-comment")
+    replyButton.id = "submit-reply-choice"
     replyBox.innerText = `@${commentName}`
     replyButton.innerText = `Reply`
 
     replyButton.addEventListener('click', e => {
-        e.preventDefault()
+        e.preventDefault();
+        createReply(commentName, commentId);
+        eraseReplyText();
     })
+}
+
+function eraseReplyText(){
+    document.getElementById("comment-box").value = "";
+    const submitButton = document.querySelector("#submit-reply-choice")
+    submitButton.id = "submit-choice-comment"
+    submitButton.innerText = `Submit`
 }
