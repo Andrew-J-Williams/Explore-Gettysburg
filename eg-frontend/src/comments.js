@@ -70,10 +70,11 @@ function fetchComments(markerUrl, eventId, userId){
                     const replyDiv = document.createElement('div')
                     replyDiv.classList.add("reply-div")
                     replyDiv.id = comment.id
+                    const commId = replyDiv.id
 
                     replyDiv.innerHTML = `
-                    <button type="button" class="collapsible">See Replies (25)</button>
-                    <div class="content">
+                    <button id="${commId}" type="button" class="collapsible">See Replies (25)</button>
+                    <div id="${commId}" class="content">
                         <p>Lorem ipsum...</p>
                     </div>
                     `

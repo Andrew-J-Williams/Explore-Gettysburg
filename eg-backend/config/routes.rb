@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :comments
       resources :scenarios
       resources :user_choices
+      resources :replies
     end
   end
 end
