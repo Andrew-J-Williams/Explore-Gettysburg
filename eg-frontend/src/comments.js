@@ -88,7 +88,8 @@ function fetchComments(markerUrl, eventId, userId){
                     btn.addEventListener('click', e => {
                         e.preventDefault();
                         //replyToComment(btn.id, comment.id, comment.title)
-                        createReply(comment.title, comment.id);
+                        //createReply(comment.title, comment.id);
+                        prepareReply(comment.title);
                     })
                     
                     scrollSection.append(br)

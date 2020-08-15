@@ -29,12 +29,9 @@ function fetchReplies(getCommentId, getEventId, getUserId){
 }
 
 function createReply(commentName, commentId){
-    console.log(`Test successful`)
-    
-    const replyBox = document.getElementById("comment-box")
-    const replyButton = document.getElementById("submit-choice-comment")
-    replyBox.innerText = `@${commentName}`
-    replyButton.innerText = `Reply`
+    const grabRepliesUrl = `http://localhost:3000/api/v1/replies/`
+
+    console.log(`Test successful for REPLY`)
 
     const usersName = document.querySelector('#welcome-user').innerText
     const currentEventId = document.getElementById("hidden-event-id").innerText
@@ -53,4 +50,28 @@ function createReply(commentName, commentId){
         comment_id: commentId
     }
 
+    fetch(grabRepliesUrl, {
+        method: "POST",
+        body: JSON.stringify(reply),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+    })
+    .then(resp => resp.json())
+    .then(newReply => {
+        console.log(newReply)
+    })
+
+
+}
+
+function prepareReply(commentName){
+    console.log(`test successful`)
+
+    const replyBox = document.getElementById("comment-box")
+    const replyButton = document.getElementById("submit-choice-comment")
+    replyBox.innerText = `@${commentName}`
+    replyButton.innerText = `Reply`
+
+    replyButton.addEventListener('click', e => {
+        e.preventDefault()
+    })
 }
