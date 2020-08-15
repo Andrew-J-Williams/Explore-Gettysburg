@@ -18,3 +18,5 @@ Scenario.create(description: "1. Testing Scenario Data", option_one: "Run down t
 Scenario.create(description: "1. Testing Scenario Data", option_one: "Run down the hill as fast as you can!", option_two: "Stay back and hope Meade sends reinforcements", answer_one: "You successfully route the enemy and have them in retreat!", answer_two: "Reinforcements did not arrive in time. You have been outflanked!", event_id: 8)
 Scenario.create(description: "1. Testing Scenario Data", option_one: "Run down the hill as fast as you can!", option_two: "Stay back and hope Meade sends reinforcements", answer_one: "You successfully route the enemy and have them in retreat!", answer_two: "Reinforcements did not arrive in time. You have been outflanked!", event_id: 9)
 
+Comment.create(title: "CaptainJilliams", content: "TESTING A COMMENT BRO", user_id: 1, event_id: 1)
+Reply.create(title: "CaptainJilliams", content: "Just over here testing a reply mate.", comment_name: "CaptainJilliams", user_id: 1, event_id: 1, comment_id: 1)

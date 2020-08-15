@@ -67,21 +67,10 @@ function fetchComments(markerUrl, eventId, userId){
                         deleteComment(comment, e)
                     })
 
-                    const replyDiv = document.createElement('div')
-                    replyDiv.classList.add("reply-div")
-                    replyDiv.id = comment.id
-                    const commId = replyDiv.id
-
-                    replyDiv.innerHTML = `
-                    <button id="${commId}" type="button" class="collapsible">See Replies (25)</button>
-                    <div id="${commId}" class="content">
-                        <p>Lorem ipsum...</p>
-                    </div>
-                    `
+                    
 
                     scrollSection.append(br)
                     scrollSection.append(divUser)
-                    scrollSection.append(replyDiv)
                     scrollSection.append(br)
                 } else if (comment.event_id === eventId && addUserId != comment.user_id){
                     h4.innerText = `${comment.title}`
@@ -98,7 +87,8 @@ function fetchComments(markerUrl, eventId, userId){
 
                     btn.addEventListener('click', e => {
                         e.preventDefault();
-                        replyToComment(btn.id, comment.id, comment.title)
+                        //replyToComment(btn.id, comment.id, comment.title)
+                        createReply(comment.title, comment.id);
                     })
                     
                     scrollSection.append(br)
