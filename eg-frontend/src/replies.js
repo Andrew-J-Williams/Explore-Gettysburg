@@ -68,6 +68,12 @@ function fetchReplies(eventId, commentId, userId){
                         userReplyUser.append(h5)
                         userReplyUser.append(p)
 
+                        let img = document.createElement('img')
+                        img.classList.add('comment-x')
+                        img.id = commentId
+                        img.src = 'https://i.imgur.com/dbzNiXR.png'
+                        userReplyUser.append(img)
+
                         selectUser.append(br)
                         selectUser.append(userReplyUser)
                         selectUser.append(br)
@@ -122,6 +128,12 @@ function fetchReplies(eventId, commentId, userId){
                         indReplyUser.append(h5)
                         indReplyUser.append(p)
 
+                        let img = document.createElement('img')
+                        img.classList.add('comment-x')
+                        img.id = commentId
+                        img.src = 'https://i.imgur.com/dbzNiXR.png'
+                        indReplyUser.append(img)
+
                         selectInd.append(br)
                         selectInd.append(indReplyUser)
                         selectInd.append(br)
@@ -173,6 +185,12 @@ function createReply(commentName, commentId){
     .then(newReply => {
         console.log(newReply)
     })
+
+
+}
+
+function deleteReply(){
+
 
 
 }
