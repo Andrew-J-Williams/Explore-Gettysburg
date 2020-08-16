@@ -37,6 +37,12 @@ function fetchReplies(eventId, commentId){
                 h4.innerText = `Replies (${replyList.length})`
                 selectUser.append(h4)
 
+                h4.addEventListener('click', e => {
+                    e.preventDefault();
+                    getUserReplies();
+                })
+
+                function getUserReplies(){
                 replyList.forEach(reply => {
                     const userReply = document.createElement('div')
                     const h5 = document.createElement('h5')
@@ -54,8 +60,21 @@ function fetchReplies(eventId, commentId){
                     selectUser.append(userReply)
                     selectUser.append(br)
                 })
+                }
             } else {
                 console.log(`another user!`)
+                const h4 = document.createElement('h4')
+                h4.classList.add("replies-count-ind")
+                const br = document.createElement('br')
+                h4.innerText = `Replies (${replyList.length})`
+                selectInd.append(h4)
+
+                h4.addEventListener('click', e => {
+                    e.preventDefault();
+                    getIndReplies();
+                })
+
+                function getIndReplies(){
                 data.forEach(reply => {
                     const indReply = document.createElement('div')
                     const h5 = document.createElement('h5')
@@ -74,7 +93,9 @@ function fetchReplies(eventId, commentId){
                     selectInd.append(indReply)
                     selectInd.append(br)
                     console.log(indReply)
+
                 })
+                }
             }
 
 

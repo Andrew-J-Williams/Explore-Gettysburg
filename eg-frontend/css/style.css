@@ -497,4 +497,24 @@ input[type="radio"]:checked {
     clear: both;
     float: right;
     margin: 10px;
+    transition: 0.3s;
+}
+
+.replies-count:hover{
+    color: #084572;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.replies-count-ind{
+    clear: both;
+    float: left;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.replies-count-ind:hover{
+    color: #084572;
+    transition: 0.3s;
+    cursor: pointer;
 }
