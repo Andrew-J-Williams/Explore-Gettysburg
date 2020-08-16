@@ -75,7 +75,7 @@ function fetchComments(markerUrl, eventId, userId){
                     scrollSection.append(divUser)
                     scrollSection.append(br)
                     scrollSection.append(userReplies)
-                    fetchReplies(eventId, comment.id)
+                    fetchReplies(eventId, comment.id, addUserId)
                 } else if (comment.event_id === eventId && addUserId != comment.user_id){
                     h4.innerText = `${comment.title}`
                     p.innerText = `${comment.content}`
@@ -102,7 +102,7 @@ function fetchComments(markerUrl, eventId, userId){
                     scrollSection.append(div)
                     scrollSection.append(br)
                     scrollSection.append(commentReplies)
-                    fetchReplies(eventId, comment.id);
+                    fetchReplies(eventId, comment.id, addUserId);
                 } else {
                     scrollSection.innerHTML = `
                         <h2>No Comments Yet!</h2>

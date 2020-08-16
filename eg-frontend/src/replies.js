@@ -9,10 +9,10 @@ class Reply {
     }
 }
 
-function fetchReplies(eventId, commentId){
+function fetchReplies(eventId, commentId, userId){
     const replyUrl = `http://localhost:3000/api/v1/replies/`
     
-    
+    console.log(userId)
     fetch(replyUrl)
         .then(response => response.json())
         .then(data => {
@@ -54,20 +54,32 @@ function fetchReplies(eventId, commentId){
                 function getUserReplies(){
                 replyList.forEach(reply => {
                     const userReply = document.createElement('div')
+                    const userReplyUser = document.createElement('div')
                     const h5 = document.createElement('h5')
                     const p = document.createElement('p')
                     userReply.classList.add("user-reply")
+                    userReplyUser.classList.add("user-reply-user")
                     
                     h5.innerText = `${reply.title}`
                     p.innerText = `${reply.content}`
                 
-                    userReply.id = reply.id
-                    userReply.append(h5)
-                    userReply.append(p)
+                    if (reply.user_id === userId){
+                        userReplyUser.id = reply.id
+                        userReplyUser.append(h5)
+                        userReplyUser.append(p)
 
-                    selectUser.append(br)
-                    selectUser.append(userReply)
-                    selectUser.append(br)
+                        selectUser.append(br)
+                        selectUser.append(userReplyUser)
+                        selectUser.append(br)
+                    }else{
+                        userReply.id = reply.id
+                        userReply.append(h5)
+                        userReply.append(p)
+
+                        selectUser.append(br)
+                        selectUser.append(userReply)
+                        selectUser.append(br)
+                    }
                 })
                 }
             } else {
@@ -95,21 +107,33 @@ function fetchReplies(eventId, commentId){
                 function getIndReplies(){
                 data.forEach(reply => {
                     const indReply = document.createElement('div')
+                    const indReplyUser = document.createElement('div')
                     const h5 = document.createElement('h5')
                     const p = document.createElement('p')
                     const br = document.createElement('br')
                     indReply.classList.add("ind-reply")
+                    indReplyUser.classList.add("ind-reply-user")
 
                     h5.innerText = `${reply.title}`
                     p.innerText = `${reply.content}`
+                    
+                    if (reply.user_id === userId){
+                        indReplyUser.id = reply.id
+                        indReplyUser.append(h5)
+                        indReplyUser.append(p)
 
-                    indReply.id = reply.id
-                    indReply.append(h5)
-                    indReply.append(p)
+                        selectInd.append(br)
+                        selectInd.append(indReplyUser)
+                        selectInd.append(br)
+                    }else{
+                        indReply.id = reply.id
+                        indReply.append(h5)
+                        indReply.append(p)
 
-                    selectInd.append(br)
-                    selectInd.append(indReply)
-                    selectInd.append(br)
+                        selectInd.append(br)
+                        selectInd.append(indReply)
+                        selectInd.append(br)
+                    }
                 })
                 }
             }
