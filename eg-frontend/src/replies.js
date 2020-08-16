@@ -9,21 +9,35 @@ class Reply {
     }
 }
 
-function fetchReplies(getCommentId, getEventId, getUserId){
+function fetchReplies(eventId, commentId){
     const replyUrl = `http://localhost:3000/api/v1/replies/`
     
     
     fetch(replyUrl)
         .then(response => response.json())
         .then(data => {
-            const replyList = document.createElement('div')
-            const userComment = document.getElementsByClassName("user-comment")
+            const indReply = document.createElement('div')
+            const userReply = document.createElement('div')
+            const userComment = document.getElementsByClassName("user-comment-replies")
+            const indComment = document.getElementsByClassName("individual-comment-replies")
+            const scrollContainer = document.getElementById("scroll-container")
+            let h4 = document.createElement('h4')
+            let p = document.createElement('p')
+            const sCommentId = commentId.toString()
 
-            data.forEach(reply => {
-               const eachReply = document.createElement('div')
-               const userReply = document.createElement('div')  
-                
-            })
+            const userDivs = Array.from(userComment)
+            const selectUser = userDivs.find(div => div.id === sCommentId)
+
+            const indDivs = Array.from(indComment)
+            const selectInd = indDivs.find(div => div.id === sCommentId)
+
+
+            if (selectUser && selectInd === undefined){
+                console.log(`user reply!`)
+            } else {
+                console.log(`another user!`)
+            }
+
 
         })
 }

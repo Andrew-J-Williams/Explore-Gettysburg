@@ -464,3 +464,31 @@ input[type="radio"]:checked {
 .content.open{
     max-height: 100px;
 }
+
+.user-comment-replies {
+    background-color: #eff2f5;
+    padding: 1px;
+    padding-left: 20px;
+    width: 600px;
+    height: auto;
+    float:left;
+    position: relative;
+    margin: 10px;
+    clear: both;
+    text-align: left;
+    box-shadow: 1px 1px 5px #c7c7c7;
+}
+
+.individual-comment-replies {
+    background-color: #eff2f5;
+    padding: 1px;
+    padding-left: 20px;
+    width: 600px;
+    height: auto;
+    float:left;
+    position: relative;
+    margin: 10px;
+    clear: both;
+    text-align: left;
+    box-shadow: 1px 1px 5px #c7c7c7;
+}

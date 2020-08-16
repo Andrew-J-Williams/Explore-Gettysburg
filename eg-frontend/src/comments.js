@@ -67,11 +67,15 @@ function fetchComments(markerUrl, eventId, userId){
                         deleteComment(comment, e)
                     })
 
-                    
+                    const userReplies = document.createElement('div')
+                    userReplies.classList.add("user-comment-replies")
+                    userReplies.id = comment.id
 
                     scrollSection.append(br)
                     scrollSection.append(divUser)
                     scrollSection.append(br)
+                    scrollSection.append(userReplies)
+                    fetchReplies(eventId, comment.id)
                 } else if (comment.event_id === eventId && addUserId != comment.user_id){
                     h4.innerText = `${comment.title}`
                     p.innerText = `${comment.content}`
@@ -86,13 +90,19 @@ function fetchComments(markerUrl, eventId, userId){
                     div.append(btn)
 
                     btn.addEventListener('click', e => {
-                        e.preventDefault();å
+                        e.preventDefault();
                         prepareReply(comment.title, comment.id);
                     })
+
+                    const commentReplies = document.createElement('div')
+                    commentReplies.classList.add("individual-comment-replies")
+                    commentReplies.id = comment.id
                     
                     scrollSection.append(br)
                     scrollSection.append(div)
                     scrollSection.append(br)
+                    scrollSection.append(commentReplies)
+                    fetchReplies(eventId, comment.id);
                 } else {
                     scrollSection.innerHTML = `
                         <h2>No Comments Yet!</h2>
