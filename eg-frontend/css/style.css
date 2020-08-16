@@ -265,6 +265,15 @@ textarea {
     margin-left: 88px;
 }
 
+.reply-box {
+    width: 600px;
+    height: 200px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 88px;
+}
+
 fieldset {
     display: inline-block;
     position: relative;

@@ -86,9 +86,7 @@ function fetchComments(markerUrl, eventId, userId){
                     div.append(btn)
 
                     btn.addEventListener('click', e => {
-                        e.preventDefault();
-                        //replyToComment(btn.id, comment.id, comment.title)
-                        //createReply(comment.title, comment.id);
+                        e.preventDefault();å
                         prepareReply(comment.title, comment.id);
                     })
                     
@@ -110,7 +108,7 @@ function fetchComments(markerUrl, eventId, userId){
             <textarea rows="6" cols="50" name="comment" id="comment-box" class="comment-box" placeholder="Write a comment..."></textarea>
              `
             newComment.append(submitButton) 
-            
+
             commentContainer.append(extraSpace)
             const commentSubmit = document.querySelector("#submit-choice-comment")
 
@@ -203,12 +201,12 @@ function eraseText() {
     document.getElementById("comment-box").value = "";
 }
 
-function replyToComment(buttonId, commentId, userName) {
-    const btnId = parseInt(buttonId, 10)
-    console.log(btnId)
-    const tex = document.getElementById("comment-box")
-
-    if (btnId === commentId){
-        tex.innerText = `@${userName}`
-    }
-}
+//function replyToComment(buttonId, commentId, userName) {
+//    const btnId = parseInt(buttonId, 10)
+//    console.log(btnId)
+//    const tex = document.getElementById("comment-box")
+//
+//    if (btnId === commentId){
+//        tex.innerText = `@${userName}`
+//    }
+//}

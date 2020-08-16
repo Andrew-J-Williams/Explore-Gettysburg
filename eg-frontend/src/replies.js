@@ -43,7 +43,7 @@ function createReply(commentName, commentId){
 
     const reply = {
         title: commentTitle,
-        content: document.getElementById('comment-box').value,
+        content: document.getElementById('reply-box').value,
         comment_name: commentName,
         event_id: addEventId,
         user_id: addUserId,
@@ -65,12 +65,23 @@ function createReply(commentName, commentId){
 
 function prepareReply(commentName, commentId){
     console.log(`test successful`)
+    clearNewComment();
 
-    const replyBox = document.getElementById("comment-box")
-    const replyButton = document.querySelector("#submit-choice-comment")
-    replyButton.id = "submit-reply-choice"
+    const commentContainer = document.getElementById("new-comment-container")
+
+    commentContainer.innerHTML = `
+    <textarea rows="6" cols="50" name="reply" id="reply-box" class="reply-box"></textarea>
+    `
+    const replyBox = document.getElementById("reply-box")
+    const extraSpace = document.createElement('p')
+    extraSpace.classList.add("info-text")
     replyBox.innerText = `@${commentName}`
+    const replyButton = document.createElement('button')
+    replyButton.id = "submit-reply-choice"
     replyButton.innerText = `Reply`
+
+    commentContainer.append(replyButton)
+    commentContainer.append(extraSpace)
 
     replyButton.addEventListener('click', e => {
         e.preventDefault();
@@ -79,9 +90,32 @@ function prepareReply(commentName, commentId){
     })
 }
 
+function clearNewComment(){
+    const commentContainer = document.getElementById("new-comment-container")
+    commentContainer.innerHTML = ``
+}
+
 function eraseReplyText(){
-    document.getElementById("comment-box").value = "";
-    const submitButton = document.querySelector("#submit-reply-choice")
+    clearNewComment();
+    const commentContainer = document.getElementById("new-comment-container")
+    const submitButton = document.createElement('button')
+    const extraSpace = document.createElement('p')
+    extraSpace.classList.add("info-text")
     submitButton.id = "submit-choice-comment"
     submitButton.innerText = `Submit`
+
+    commentContainer.innerHTML = `
+    <textarea rows="6" cols="50" name="comment" id="comment-box" class="comment-box" placeholder="Write a comment..."></textarea>
+    `
+    commentContainer.append(submitButton)
+    commentContainer.append(extraSpace)
+
+    const commentSubmit = document.querySelector("#submit-choice-comment")
+
+                commentSubmit.addEventListener('click', e => {
+                    e.preventDefault()
+                    addComment();
+                    eraseText();
+                })
+
 }
