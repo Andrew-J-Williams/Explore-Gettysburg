@@ -16,13 +16,8 @@ function fetchReplies(eventId, commentId){
     fetch(replyUrl)
         .then(response => response.json())
         .then(data => {
-            const indReply = document.createElement('div')
-            const userReply = document.createElement('div')
             const userComment = document.getElementsByClassName("user-comment-replies")
             const indComment = document.getElementsByClassName("individual-comment-replies")
-            const scrollContainer = document.getElementById("scroll-container")
-            let h4 = document.createElement('h4')
-            let p = document.createElement('p')
             const sCommentId = commentId.toString()
 
             const userDivs = Array.from(userComment)
@@ -31,11 +26,55 @@ function fetchReplies(eventId, commentId){
             const indDivs = Array.from(indComment)
             const selectInd = indDivs.find(div => div.id === sCommentId)
 
+            const replyList = data.filter(reply => reply.event_id === eventId && reply.comment_id === commentId)
+
 
             if (selectUser && selectInd === undefined){
                 console.log(`user reply!`)
+                const h4 = document.createElement('h4')
+                h4.classList.add("replies-count")
+                const br = document.createElement('br')
+                h4.innerText = `Replies (${replyList.length})`
+                selectUser.append(h4)
+
+                replyList.forEach(reply => {
+                    const userReply = document.createElement('div')
+                    const h5 = document.createElement('h5')
+                    const p = document.createElement('p')
+                    userReply.classList.add("user-reply")
+                    
+                    h5.innerText = `${reply.title}`
+                    p.innerText = `${reply.content}`
+                
+                    userReply.id = reply.id
+                    userReply.append(h5)
+                    userReply.append(p)
+
+                    selectUser.append(br)
+                    selectUser.append(userReply)
+                    selectUser.append(br)
+                })
             } else {
                 console.log(`another user!`)
+                data.forEach(reply => {
+                    const indReply = document.createElement('div')
+                    const h5 = document.createElement('h5')
+                    const p = document.createElement('p')
+                    const br = document.createElement('br')
+                    indReply.classList.add("ind-reply")
+
+                    h5.innerText = `${reply.title}`
+                    p.innerText = `${reply.content}`
+
+                    indReply.id = reply.id
+                    indReply.append(h5)
+                    indReply.append(p)
+
+                    selectInd.append(br)
+                    selectInd.append(indReply)
+                    selectInd.append(br)
+                    console.log(indReply)
+                })
             }
 
 
