@@ -52,18 +52,27 @@ function fetchReplies(eventId, commentId, userId){
                 })
 
                 function getUserReplies(){
-                replyList.forEach(reply => {
+                    replyList.forEach(reply => {
                     const userReply = document.createElement('div')
                     const userReplyUser = document.createElement('div')
                     const h5 = document.createElement('h5')
                     const p = document.createElement('p')
                     userReply.classList.add("user-reply")
                     userReplyUser.classList.add("user-reply-user")
-                    
+                    console.log(reply)
+
                     h5.innerText = `${reply.title}`
                     p.innerText = `${reply.content}`
                 
-                    if (reply.user_id === userId){
+                    if (reply.user_id !== userId){
+                        userReply.id = reply.id
+                        userReply.append(h5)
+                        userReply.append(p)
+
+                        selectUser.append(br)
+                        selectUser.append(userReply)
+                        selectUser.append(br)
+                    } else if (reply.user_id === userId && reply.comment_id === commentId){
                         userReplyUser.id = reply.id
                         userReplyUser.append(h5)
                         userReplyUser.append(p)
@@ -74,16 +83,14 @@ function fetchReplies(eventId, commentId, userId){
                         img.src = 'https://i.imgur.com/dbzNiXR.png'
                         userReplyUser.append(img)
 
-                        selectUser.append(br)
-                        selectUser.append(userReplyUser)
-                        selectUser.append(br)
-                    }else{
-                        userReply.id = reply.id
-                        userReply.append(h5)
-                        userReply.append(p)
+                        img.addEventListener('click', e => {
+                            e.preventDefault()
+                            console.log(reply)
+                            deleteReply(reply, e)
+                        })
 
                         selectUser.append(br)
-                        selectUser.append(userReply)
+                        selectUser.append(userReplyUser)
                         selectUser.append(br)
                     }
                 })
@@ -119,6 +126,7 @@ function fetchReplies(eventId, commentId, userId){
                     const br = document.createElement('br')
                     indReply.classList.add("ind-reply")
                     indReplyUser.classList.add("ind-reply-user")
+                    console.log(reply)
 
                     h5.innerText = `${reply.title}`
                     p.innerText = `${reply.content}`
@@ -134,10 +142,16 @@ function fetchReplies(eventId, commentId, userId){
                         img.src = 'https://i.imgur.com/dbzNiXR.png'
                         indReplyUser.append(img)
 
+                        img.addEventListener('click', e => {
+                            e.preventDefault()
+                            console.log(reply)
+                            deleteReply(reply, e)
+                        })
+
                         selectInd.append(br)
                         selectInd.append(indReplyUser)
                         selectInd.append(br)
-                    }else{
+                    } else if (reply.user_id !== userId && reply.comment_id === commentId) {
                         indReply.id = reply.id
                         indReply.append(h5)
                         indReply.append(p)
@@ -189,9 +203,19 @@ function createReply(commentName, commentId){
 
 }
 
-function deleteReply(){
+function deleteReply(reply, event){
 
-
+    fetch(`http://localhost:3000/api/v1/replies/${reply.id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        event.target.parentElement.remove()
+    })
 
 }
 
