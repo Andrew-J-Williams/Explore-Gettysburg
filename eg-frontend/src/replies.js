@@ -19,9 +19,9 @@ function fetchReplies(eventId, commentId, userId){
             const userComment = document.getElementsByClassName("user-comment-replies")
             const indComment = document.getElementsByClassName("individual-comment-replies")
             const sCommentId = commentId.toString()
-            const countHolder = document.createElement('p')
-            countHolder.classList.add("count-holder")
-            countHolder.id = commentId
+            //const countHolder = document.createElement('p')
+            //countHolder.classList.add("count-holder")
+            //countHolder.id = commentId
 
             const userDivs = Array.from(userComment)
             const selectUser = userDivs.find(div => div.id === sCommentId)
@@ -44,17 +44,12 @@ function fetchReplies(eventId, commentId, userId){
                 let count = 0;
 
                 h4.addEventListener('click', e => {
-                    count += 1;
-                    countHolder.innerText = count
+                  count += 1;
 
-                    if (Math.abs(count % 2) == 1){
+                    if (count < 2){
                         e.preventDefault();
                         getUserReplies();
-                        selectInd.append(countHolder)
-                    } else {
-                        selectUser.innerHTML = ``
-                        selectUser.append(h4)
-                    }
+                    } 
                 })
 
                 function getUserReplies(){
@@ -113,15 +108,10 @@ function fetchReplies(eventId, commentId, userId){
 
                 h4.addEventListener('click', e => {
                     count += 1;
-                    countHolder.innerText = count
 
-                    if (Math.abs(count % 2) == 1){
+                    if (count < 2){
                         e.preventDefault();
                         getIndReplies();
-                        selectInd.append(countHolder)
-                    } else {
-                        selectInd.innerHTML = ``
-                        selectInd.append(h4)
                     }
                 })
 
@@ -212,7 +202,7 @@ function createReply(commentName, commentId){
     .then(newReply => {
         const indComment = document.getElementsByClassName("individual-comment-replies")
         const getButton = document.getElementsByClassName("replies-count-ind")
-        const getCount = document.getElementsByClassName("count-holder")
+        //const getCount = document.getElementsByClassName("count-holder")
         const sCommentId = commentId.toString()
 
         const indReplyUser = document.createElement('div')
@@ -227,16 +217,16 @@ function createReply(commentName, commentId){
         const allButtons = Array.from(getButton)
         const selectButton = allButtons.find(h4 => h4.id === sCommentId)
 
-        const collectCounts = Array.from(getCount)
-        const selectCount = collectCounts.find(p => p.id === sCommentId)
+        //const collectCounts = Array.from(getCount)
+        //const selectCount = collectCounts.find(p => p.id === sCommentId)
 
         console.log(selectButton)
         console.log(selectInd)
-        console.log(collectCounts)
+        //console.log(collectCounts)
 
-        if (selectCount % 2 == 0 || !selectCount){
-            selectButton.click();
-        }
+        //if (selectCount % 2 == 0 || !selectCount){
+        //    selectButton.click();
+        //}
 
         h5.innerText = `${newReply.title}`
         p.innerText = `${newReply.content}`
