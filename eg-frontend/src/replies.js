@@ -33,6 +33,7 @@ function fetchReplies(eventId, commentId, userId){
                 console.log(`user reply!`)
                 const h4 = document.createElement('h4')
                 h4.classList.add("replies-count")
+                h4.id = commentId
                 const br = document.createElement('br')
                 h4.innerText = `Replies (${replyList.length})`
                 selectUser.append(h4)
@@ -99,6 +100,7 @@ function fetchReplies(eventId, commentId, userId){
                 console.log(`another user!`)
                 const h4 = document.createElement('h4')
                 h4.classList.add("replies-count-ind")
+                h4.id = commentId
                 const br = document.createElement('br')
                 h4.innerText = `Replies (${replyList.length})`
                 selectInd.append(h4)
@@ -118,7 +120,7 @@ function fetchReplies(eventId, commentId, userId){
                 })
 
                 function getIndReplies(){
-                data.forEach(reply => {
+                    data.forEach(reply => {
                     const indReply = document.createElement('div')
                     const indReplyUser = document.createElement('div')
                     const h5 = document.createElement('h5')
@@ -197,7 +199,49 @@ function createReply(commentName, commentId){
     })
     .then(resp => resp.json())
     .then(newReply => {
-        console.log(newReply)
+        const indComment = document.getElementsByClassName("individual-comment-replies")
+        const getButton = document.getElementsByClassName("replies-count-ind")
+        const sCommentId = commentId.toString()
+
+        const indReplyUser = document.createElement('div')
+        const h5 = document.createElement('h5')
+        const p = document.createElement('p')
+        const br = document.createElement('br')
+        indReplyUser.classList.add("ind-reply-user")
+
+        const indDivs = Array.from(indComment)
+        const selectInd = indDivs.find(div => div.id === sCommentId)
+
+        const allButtons = Array.from(getButton)
+        const selectButton = allButtons.find(h4 => h4.id === sCommentId)
+
+        console.log(selectButton)
+        console.log(selectInd)
+
+        selectButton.click();
+
+        h5.innerText = `${newReply.title}`
+        p.innerText = `${newReply.content}`
+
+        indReplyUser.id = newReply.id
+        indReplyUser.append(h5)
+        indReplyUser.append(p)
+
+        let img = document.createElement('img')
+        img.classList.add('comment-x')
+        img.id = commentId
+        img.src = 'https://i.imgur.com/dbzNiXR.png'
+        indReplyUser.append(img)
+
+        img.addEventListener('click', e => {
+            e.preventDefault()
+            console.log(newReply)
+            deleteReply(newReply, e)
+        })
+
+        selectInd.append(br)
+        selectInd.append(indReplyUser)
+        selectInd.append(br)
     })
 
 
