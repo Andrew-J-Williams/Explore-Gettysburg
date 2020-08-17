@@ -19,6 +19,9 @@ function fetchReplies(eventId, commentId, userId){
             const userComment = document.getElementsByClassName("user-comment-replies")
             const indComment = document.getElementsByClassName("individual-comment-replies")
             const sCommentId = commentId.toString()
+            const countHolder = document.createElement('p')
+            countHolder.classList.add("count-holder")
+            countHolder.id = commentId
 
             const userDivs = Array.from(userComment)
             const selectUser = userDivs.find(div => div.id === sCommentId)
@@ -27,6 +30,7 @@ function fetchReplies(eventId, commentId, userId){
             const selectInd = indDivs.find(div => div.id === sCommentId)
 
             const replyList = data.filter(reply => reply.event_id === eventId && reply.comment_id === commentId)
+            const lengthList = replyList.length
 
 
             if (selectUser && selectInd === undefined){
@@ -35,17 +39,18 @@ function fetchReplies(eventId, commentId, userId){
                 h4.classList.add("replies-count")
                 h4.id = commentId
                 const br = document.createElement('br')
-                h4.innerText = `Replies (${replyList.length})`
+                h4.innerText = `Replies (${lengthList})`
                 selectUser.append(h4)
                 let count = 0;
 
                 h4.addEventListener('click', e => {
                     count += 1;
-                    console.log(count)
+                    countHolder.innerText = count
 
                     if (Math.abs(count % 2) == 1){
                         e.preventDefault();
                         getUserReplies();
+                        selectInd.append(countHolder)
                     } else {
                         selectUser.innerHTML = ``
                         selectUser.append(h4)
@@ -78,7 +83,7 @@ function fetchReplies(eventId, commentId, userId){
                         userReplyUser.append(h5)
                         userReplyUser.append(p)
 
-                        let img = document.createElement('img')
+                        const img = document.createElement('img')
                         img.classList.add('comment-x')
                         img.id = commentId
                         img.src = 'https://i.imgur.com/dbzNiXR.png'
@@ -102,17 +107,18 @@ function fetchReplies(eventId, commentId, userId){
                 h4.classList.add("replies-count-ind")
                 h4.id = commentId
                 const br = document.createElement('br')
-                h4.innerText = `Replies (${replyList.length})`
+                h4.innerText = `Replies (${lengthList})`
                 selectInd.append(h4)
                 let count = 0;
 
                 h4.addEventListener('click', e => {
                     count += 1;
-                    console.log(count)
+                    countHolder.innerText = count
 
                     if (Math.abs(count % 2) == 1){
                         e.preventDefault();
                         getIndReplies();
+                        selectInd.append(countHolder)
                     } else {
                         selectInd.innerHTML = ``
                         selectInd.append(h4)
@@ -120,6 +126,8 @@ function fetchReplies(eventId, commentId, userId){
                 })
 
                 function getIndReplies(){
+                    console.log(replyList.length - 1)
+
                     data.forEach(reply => {
                     const indReply = document.createElement('div')
                     const indReplyUser = document.createElement('div')
@@ -138,7 +146,7 @@ function fetchReplies(eventId, commentId, userId){
                         indReplyUser.append(h5)
                         indReplyUser.append(p)
 
-                        let img = document.createElement('img')
+                        const img = document.createElement('img')
                         img.classList.add('comment-x')
                         img.id = commentId
                         img.src = 'https://i.imgur.com/dbzNiXR.png'
@@ -146,9 +154,12 @@ function fetchReplies(eventId, commentId, userId){
 
                         img.addEventListener('click', e => {
                             e.preventDefault()
-                            console.log(reply)
                             deleteReply(reply, e)
                         })
+
+                        //if (img.click()){
+                        //    replyList.innerHTML = `Replies (${replyList.length - 1})`
+                        //}
 
                         selectInd.append(br)
                         selectInd.append(indReplyUser)
@@ -201,6 +212,7 @@ function createReply(commentName, commentId){
     .then(newReply => {
         const indComment = document.getElementsByClassName("individual-comment-replies")
         const getButton = document.getElementsByClassName("replies-count-ind")
+        const getCount = document.getElementsByClassName("count-holder")
         const sCommentId = commentId.toString()
 
         const indReplyUser = document.createElement('div')
@@ -215,10 +227,16 @@ function createReply(commentName, commentId){
         const allButtons = Array.from(getButton)
         const selectButton = allButtons.find(h4 => h4.id === sCommentId)
 
+        const collectCounts = Array.from(getCount)
+        const selectCount = collectCounts.find(p => p.id === sCommentId)
+
         console.log(selectButton)
         console.log(selectInd)
+        console.log(collectCounts)
 
-        selectButton.click();
+        if (selectCount % 2 == 0 || !selectCount){
+            selectButton.click();
+        }
 
         h5.innerText = `${newReply.title}`
         p.innerText = `${newReply.content}`
@@ -242,6 +260,7 @@ function createReply(commentName, commentId){
         selectInd.append(br)
         selectInd.append(indReplyUser)
         selectInd.append(br)
+        indReplyUser.scrollIntoView()
     })
 
 
