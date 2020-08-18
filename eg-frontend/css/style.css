@@ -558,3 +558,9 @@ input[type="radio"]:checked {
 .count-holder{
     opacity: 0%;
 }
+
+.no-comment {
+    text-align: center;
+    position: relative;
+    bottom: -115px;
+}

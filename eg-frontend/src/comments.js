@@ -105,7 +105,7 @@ function fetchComments(markerUrl, eventId, userId){
                     fetchReplies(eventId, comment.id, addUserId);
                 } else {
                     scrollSection.innerHTML = `
-                        <h2>No Comments Yet!</h2>
+                        <h2 class="no-comment">No Comments Yet!</h2>
                     `
                 }
             })
