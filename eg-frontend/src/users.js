@@ -32,6 +32,12 @@ function createUser(userId){
         userId = newUser.id
         console.log(userId)
         console.log(document.getElementById("hidden-user-id").innerText)
+        console.log(newUser.password)
     })
 
+}
+
+function validateUser(){
+
+    
 }

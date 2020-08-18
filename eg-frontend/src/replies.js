@@ -19,9 +19,6 @@ function fetchReplies(eventId, commentId, userId){
             const userComment = document.getElementsByClassName("user-comment-replies")
             const indComment = document.getElementsByClassName("individual-comment-replies")
             const sCommentId = commentId.toString()
-            //const countHolder = document.createElement('p')
-            //countHolder.classList.add("count-holder")
-            //countHolder.id = commentId
 
             const userDivs = Array.from(userComment)
             const selectUser = userDivs.find(div => div.id === sCommentId)
@@ -69,6 +66,17 @@ function fetchReplies(eventId, commentId, userId){
                         userReply.id = reply.id
                         userReply.append(h5)
                         userReply.append(p)
+
+                        let btn = document.createElement('button')
+                        btn.classList.add("reply-button-reply")
+                        btn.id = commentId
+                        btn.innerText = `Reply`
+                        userReply.append(btn)
+
+                        btn.addEventListener('click', e =>{
+                            e.preventDefault();
+                            prepareReply(reply.title, commentId);
+                        })
 
                         selectUser.append(br)
                         selectUser.append(userReply)
@@ -147,10 +155,6 @@ function fetchReplies(eventId, commentId, userId){
                             deleteReply(reply, e)
                         })
 
-                        //if (img.click()){
-                        //    replyList.innerHTML = `Replies (${replyList.length - 1})`
-                        //}
-
                         selectInd.append(br)
                         selectInd.append(indReplyUser)
                         selectInd.append(br)
@@ -158,6 +162,17 @@ function fetchReplies(eventId, commentId, userId){
                         indReply.id = reply.id
                         indReply.append(h5)
                         indReply.append(p)
+
+                        let btn = document.createElement('button')
+                        btn.classList.add("reply-button-reply")
+                        btn.id = commentId
+                        btn.innerText = `Reply`
+                        userReply.append(btn)
+
+                        btn.addEventListener('click', e =>{
+                            e.preventDefault();
+                            prepareReply(reply.title, commentId);
+                        })
 
                         selectInd.append(br)
                         selectInd.append(indReply)
@@ -201,6 +216,7 @@ function createReply(commentName, commentId){
     .then(resp => resp.json())
     .then(newReply => {
         const indComment = document.getElementsByClassName("individual-comment-replies")
+        const userComment = document.getElementsByClassName("user-comment-replies")
         const getButton = document.getElementsByClassName("replies-count-ind")
         //const getCount = document.getElementsByClassName("count-holder")
         const sCommentId = commentId.toString()
@@ -209,24 +225,25 @@ function createReply(commentName, commentId){
         const h5 = document.createElement('h5')
         const p = document.createElement('p')
         const br = document.createElement('br')
-        indReplyUser.classList.add("ind-reply-user")
 
         const indDivs = Array.from(indComment)
         const selectInd = indDivs.find(div => div.id === sCommentId)
 
+        const userDivs = Array.from(userComment)
+        const selectUser = userDivs.find(div => div.id === sCommentId)
+
         const allButtons = Array.from(getButton)
         const selectButton = allButtons.find(h4 => h4.id === sCommentId)
 
-        //const collectCounts = Array.from(getCount)
-        //const selectCount = collectCounts.find(p => p.id === sCommentId)
+        if (selectUser.id === sCommentId){
+            indReplyUser.classList.add("user-reply-user")
+        }else{
+            indReplyUser.classList.add("ind-reply-user")
+        }
 
         console.log(selectButton)
+        console.log(selectUser)
         console.log(selectInd)
-        //console.log(collectCounts)
-
-        //if (selectCount % 2 == 0 || !selectCount){
-        //    selectButton.click();
-        //}
 
         h5.innerText = `${newReply.title}`
         p.innerText = `${newReply.content}`
@@ -247,10 +264,17 @@ function createReply(commentName, commentId){
             deleteReply(newReply, e)
         })
 
-        selectInd.append(br)
-        selectInd.append(indReplyUser)
-        selectInd.append(br)
-        indReplyUser.scrollIntoView()
+        if (selectUser.id === sCommentId){
+            selectUser.append(br)
+            selectUser.append(indReplyUser)
+            selectUser.append(br)
+            indReplyUser.scrollIntoView()
+        }else{
+            selectInd.append(br)
+            selectInd.append(indReplyUser)
+            selectInd.append(br)
+            indReplyUser.scrollIntoView()
+        }
     })
 
 
