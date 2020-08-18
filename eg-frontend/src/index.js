@@ -123,7 +123,7 @@ window.addEventListener('DOMContentLoaded', e => {
 
         logInContainer.append(innerDiv)
         innerDiv.innerHTML = `
-        <h3><i>Create or Enter and Existing Account</i></h3>
+        <h3><i>Create or Enter an Existing Account</i></h3>
         <label><b>Username: </b></label>
         <input type="text" id="user-name-spot" class="user-name-spot"/>
         <br><br>

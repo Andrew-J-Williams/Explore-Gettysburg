@@ -167,7 +167,7 @@ function fetchReplies(eventId, commentId, userId){
                         btn.classList.add("reply-button-reply")
                         btn.id = commentId
                         btn.innerText = `Reply`
-                        userReply.append(btn)
+                        indReply.append(btn)
 
                         btn.addEventListener('click', e =>{
                             e.preventDefault();
