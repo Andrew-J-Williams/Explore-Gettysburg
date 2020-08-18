@@ -139,7 +139,7 @@ function fetchReplies(eventId, commentId, userId){
                     h5.innerText = `${reply.title}`
                     p.innerText = `${reply.content}`
                     
-                    if (reply.user_id === userId){
+                    if (reply.user_id === userId && reply.comment_id === commentId){
                         indReplyUser.id = reply.id
                         indReplyUser.append(h5)
                         indReplyUser.append(p)
@@ -218,7 +218,6 @@ function createReply(commentName, commentId){
         const indComment = document.getElementsByClassName("individual-comment-replies")
         const userComment = document.getElementsByClassName("user-comment-replies")
         const getButton = document.getElementsByClassName("replies-count-ind")
-        //const getCount = document.getElementsByClassName("count-holder")
         const sCommentId = commentId.toString()
 
         const indReplyUser = document.createElement('div')
@@ -232,16 +231,19 @@ function createReply(commentName, commentId){
         const userDivs = Array.from(userComment)
         const selectUser = userDivs.find(div => div.id === sCommentId)
 
+        console.log(userDivs)
+
         const allButtons = Array.from(getButton)
         const selectButton = allButtons.find(h4 => h4.id === sCommentId)
 
-        if (selectUser.id === sCommentId){
+        if (selectUser){
             indReplyUser.classList.add("user-reply-user")
         }else{
             indReplyUser.classList.add("ind-reply-user")
         }
 
         console.log(selectButton)
+        console.log(userDivs)
         console.log(selectUser)
         console.log(selectInd)
 
@@ -264,7 +266,7 @@ function createReply(commentName, commentId){
             deleteReply(newReply, e)
         })
 
-        if (selectUser.id === sCommentId){
+        if (selectUser){
             selectUser.append(br)
             selectUser.append(indReplyUser)
             selectUser.append(br)
@@ -273,6 +275,7 @@ function createReply(commentName, commentId){
             selectInd.append(br)
             selectInd.append(indReplyUser)
             selectInd.append(br)
+            selectButton.click()
             indReplyUser.scrollIntoView()
         }
     })

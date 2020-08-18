@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', e => {
     
     let userStatus = false;
     let userId;
-    //let eventValue;
 
 
 
