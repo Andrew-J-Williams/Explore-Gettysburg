@@ -564,3 +564,25 @@ input[type="radio"]:checked {
     position: relative;
     bottom: -115px;
 }
+
+.description {
+    margin: 15px;
+    text-align: left;
+    padding: 15px;
+}
+
+.battle-choice {
+    padding: 10px;
+    margin: 15px;
+}
+
+.your-choice {
+    max-width: 375px;
+    max-height: 275px;
+    box-shadow: 1px 1px 5px #c7c7c7;
+    clear: both;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background-color: white;
+}
