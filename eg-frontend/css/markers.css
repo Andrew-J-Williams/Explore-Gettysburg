@@ -18,125 +18,125 @@
 #red-marker1 {
     display: block;
     position: absolute;
-    top: -960px;
+    top: -940px;
     left: 270px;
 }
 
 #red-marker1:hover {
     display: block;
     position: absolute;
-    top: -970px;
+    top: -950px;
     left: 260px;
 }
 
 #red-marker2 {
     display: block;
     position: absolute;
-    top: -1050px;
+    top: -1000px;
     left: 430px;
 }
 
 #red-marker2:hover {
     display: block;
     position: absolute;
-    top: -1060px;
+    top: -1010px;
     left: 420px;
 }
 
 #red-marker3 {
     display: block;
     position: absolute;
-    top: -500px;
-    left: 600px;
+    top: -670px;
+    left: 460px;
 }
 
 #red-marker3:hover {
     display: block;
     position: absolute;
-    top: -510px;
-    left: 590px;
+    top: -680px;
+    left: 450px;
 }
 
 #blue-marker1 {
     display: block;
     position: absolute;
-    top: -560px;
-    left: 500px;
+    top: -620px;
+    left: 240px;
 }
 
 #blue-marker1:hover {
     display: block;
     position: absolute;
-    top: -570px;
-    left: 490px;
+    top: -630px;
+    left: 230px;
 }
 
 #blue-marker2 {
     display: block;
     position: absolute;
-    top: -600px;
-    left: 300px;
+    top: -560px;
+    left: 400px;
 }
 
 #blue-marker2:hover {
     display: block;
     position: absolute;
-    top: -610px;
-    left: 290px;
+    top: -570px;
+    left: 390px;
 }
 
 #blue-marker3 {
     display: block;
     position: absolute;
-    top: -750px;
-    left: 100px;
+    top: -850px;
+    left: 750px;
 }
 
 #blue-marker3:hover {
     display: block;
     position: absolute;
-    top: -760px;
-    left: 90px;
+    top: -860px;
+    left: 740px;
 }
 
 #green-marker1 {
     display: block;
     position: absolute;
-    top: -1050px;
-    left: 200px;
+    top: -360px;
+    left: 240px;
 }
 
 #green-marker1:hover {
     display: block;
     position: absolute;
-    top: -1060px;
-    left: 190px;
+    top: -370px;
+    left: 230px;
 }
 
 #green-marker2 {
     display: block;
     position: absolute;
-    top: -950px;
-    left: 750px;
+    top: -230px;
+    left: 400px;
 }
 
 #green-marker2:hover {
     display: block;
     position: absolute;
-    top: -960px;
-    left: 740px;
+    top: -240px;
+    left: 390px;
 }
 
 #green-marker3 {
     display: block;
     position: absolute;
-    top: -800px;
-    left: 450px;
+    top: -750px;
+    left: 580px;
 }
 
 #green-marker3:hover {
     display: block;
     position: absolute;
-    top: -810px;
-    left: 440px;
+    top: -760px;
+    left: 570px;
 }

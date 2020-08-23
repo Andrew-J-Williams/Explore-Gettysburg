@@ -589,8 +589,10 @@ input[type="radio"]:checked {
 
 .historical {
     color: green;
+    font-weight: bold;
 }
 
 .not-historical {
     color: red;
+    font-weight: bold;
 }

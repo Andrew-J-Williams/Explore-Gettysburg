@@ -43,8 +43,10 @@ function fetchScenario(markerUrl, eventId, userChoice){
                 `
                 if (data.historical_one === "Yes"){
                     historicalP.innerText = `You Chose History!`
+                    scenarioContainer.append(historicalP)
                 } else {
                     notHistoricalP.innerText = `You Chose Alternative History!`
+                    scenarioContainer.append(notHistoricalP)
                 }
 
                 choiceBreakdown(answer_one, answer_two)
@@ -62,8 +64,10 @@ function fetchScenario(markerUrl, eventId, userChoice){
             `
             if (data.historical_two === "Yes"){
                 historicalP.innerText = `You Chose History!`
+                scenarioContainer.append(historicalP)
             } else {
                 notHistoricalP.innerText = `You Chose Alternative History!`
+                scenarioContainer.append(notHistoricalP)
             }
                 choiceBreakdown(answer_one, answer_two)
                 if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
