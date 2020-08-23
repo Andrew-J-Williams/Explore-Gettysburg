@@ -17,7 +17,7 @@ function fetchScenario(markerUrl, eventId, userChoice){
         scenarioContainer.innerHTML = `
         <h2>You Make the Call!</h2>
 
-        <img src="https://i.pinimg.com/originals/b2/94/07/b29407a2f023770524e67a9739f73ce7.jpg" class="your-choice">
+        <img src="${data.url}" class="your-choice">
 
         <p class="description">${data.description}</p>
         <fieldset class="battle-choice">
