@@ -3,6 +3,10 @@ function fetchScenario(markerUrl, eventId, userChoice){
     .then(response => response.json())
     .then(data => {
         const scenarioContainer = document.querySelector("#scenario-container")
+        const historicalP = document.createElement('p')
+        const notHistoricalP = document.createElement('p')
+        historicalP.classList.add("historical")
+        notHistoricalP.classList.add("not-historical")
         const scenarioId = data.id
         const scenario_desc = data.description
         const option_one = data.option_one
@@ -37,6 +41,12 @@ function fetchScenario(markerUrl, eventId, userChoice){
                     <h2>Your Battle Decision Result: </h2>
                     <p id="answer-one" class="info-text">${answer_one}</p>
                 `
+                if (data.historical_one === "Yes"){
+                    historicalP.innerText = `You Chose History!`
+                } else {
+                    notHistoricalP.innerText = `You Chose Alternative History!`
+                }
+
                 choiceBreakdown(answer_one, answer_two)
                 if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_one);
@@ -50,6 +60,11 @@ function fetchScenario(markerUrl, eventId, userChoice){
                 <h2>Your Battle Decision Result: </h2>
                 <p id="answer-two" class="info-text">${answer_two}</p>
             `
+            if (data.historical_two === "Yes"){
+                historicalP.innerText = `You Chose History!`
+            } else {
+                notHistoricalP.innerText = `You Chose Alternative History!`
+            }
                 choiceBreakdown(answer_one, answer_two)
                 if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_two);

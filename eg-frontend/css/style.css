@@ -586,3 +586,11 @@ input[type="radio"]:checked {
     border-radius: 50%;
     background-color: white;
 }
+
+.historical {
+    color: green;
+}
+
+.not-historical {
+    color: red;
+}
