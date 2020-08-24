@@ -49,6 +49,7 @@ textarea {
     bottom: 0px;
     height: 600px;
     width: 100%;
+    margin-bottom: 0em;
 }
 
 .login {

@@ -19,6 +19,7 @@ Setup and seed the database:
 Run the rails server:
 
 - rails s
+
 Navigate to the **explore-gettysburg/eg_frontend**.
 
 Open the index.html file in the browser of your choice.
