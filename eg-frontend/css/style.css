@@ -157,6 +157,7 @@ textarea {
     max-width:1200px;
     max-height:1200px;
     box-shadow: 1px 1px 5px #c7c7c7;
+    margin-bottom: 20px;
 }
 
 .info-container {
@@ -182,6 +183,7 @@ textarea {
     box-shadow: 1px 1px 5px #c7c7c7;
     text-align: center;
     font-family: Didot; 
+    margin-bottom: 30px;
 }
 
 .comment-container {
@@ -338,6 +340,7 @@ input[type="radio"]:checked {
     position: relative;
     display: inline-block;
     vertical-align: middle;
+    margin-bottom: 20px;
 }
 
 #submit-reply-choice {
