@@ -1,6 +1,5 @@
 window.addEventListener('DOMContentLoaded', e => {
 
-    const mainContainer = document.querySelector("#main")
     const redMarker1 = document.querySelector("#red-marker1")
     const redMarker2 = document.querySelector("#red-marker2")
     const redMarker3 = document.querySelector("#red-marker3")
@@ -124,13 +123,13 @@ window.addEventListener('DOMContentLoaded', e => {
         logInContainer.append(innerDiv)
         innerDiv.innerHTML = `
         <h3><i>Create or Enter an Existing Account</i></h3>
-        <label><b>Username: </b></label>
-        <input type="text" id="user-name-spot" class="user-name-spot"/>
-        <br><br>
-        <label><b>Password: </b></label>
-        <input type="password" id="password-spot" class="password-spot"/>
-        <br><br>
-        <button id="log-in-button" class="log-in-button">Log In</button>
+            <label><b>Username: </b></label>
+            <input type="text" id="user-name-spot" class="user-name-spot"/>
+            <br><br>
+            <label><b>Password: </b></label>
+            <input type="password" id="password-spot" class="password-spot"/>
+            <br><br>
+            <button id="log-in-button" class="log-in-button">Log In</button>
         `
         const logInButton = document.querySelector('#log-in-button')
 

@@ -23,7 +23,7 @@ function fetchScenario(markerUrl, eventId, userChoice){
 
         <img src="${data.url}" class="your-choice">
 
-        <p class="description">${data.description}</p>
+        <p class="description">${scenario_desc}</p>
         <fieldset class="battle-choice">
             <legend><b> Battle Decision </b></legend>
             <div><label for="radio1"><input type="radio" name="rad" value="1" id="radio1">${option_one}</label></div>

@@ -210,13 +210,3 @@ function deleteComment(comment, event){
 function eraseText() {
     document.getElementById("comment-box").value = "";
 }
-
-//function replyToComment(buttonId, commentId, userName) {
-//    const btnId = parseInt(buttonId, 10)
-//    console.log(btnId)
-//    const tex = document.getElementById("comment-box")
-//
-//    if (btnId === commentId){
-//        tex.innerText = `@${userName}`
-//    }
-//}
