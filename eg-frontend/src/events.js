@@ -3,8 +3,6 @@
         .then(response => response.json())
         .then(data => {
             const infoContainer = document.querySelector("#info-container")
-            const picture = data.url
-            console.log(picture)
 
             infoContainer.innerHTML = `
             <br>
@@ -47,10 +45,5 @@
             </div>
             <p id="hidden-event-id" class="hidden-event-id">${data.id}</p>
             `
-            let myTest = document.getElementById('hidden-event-id').innerText
-            console.log(myTest)
-            console.log(eventValue)
-            console.log(data.id)
-            console.log(data.name)
             });
     }
