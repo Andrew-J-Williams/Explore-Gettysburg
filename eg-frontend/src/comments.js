@@ -7,7 +7,7 @@ class Comment {
     }
 }
 
-function fetchComments(markerUrl, eventId, userId){
+function fetchComments(markerUrl, eventId){
     fetch(markerUrl)
         .then(response => response.json())
         .then(data => {
@@ -105,7 +105,7 @@ function fetchComments(markerUrl, eventId, userId){
                     fetchReplies(eventId, comment.id, addUserId);
                 } else {
                     scrollSection.innerHTML = `
-                        <h2 class="no-comment">No Comments Yet!</h2>
+                        <h2 class="no-comment">No Comments</h2>
                     `
                 }
             })
@@ -204,6 +204,14 @@ function deleteComment(comment, event){
     .then(resp => resp.json())
     .then(data => {
         event.target.parentElement.remove()
+
+        const commentId = comment.id
+        const convertId = commentId.toString()
+        const commentsList = Array.from(document.getElementsByClassName("user-comment-replies"))
+        const userRepliesList = commentsList.find(reply => reply.id === convertId)
+
+        userRepliesList.innerHTML = ''
+
     })
 }
 
