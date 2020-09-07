@@ -44,11 +44,6 @@ function validateUser(userObject, userName, userPassword, userId){
                     `
                     userId = newUser.id
             
-            
-            
-                    console.log(userId)
-                    console.log(document.getElementById("hidden-user-id").innerText)
-                    console.log(newUser.password)
                 })
             } else {
                 alert(`Password for ${userName} is Incorrect!`)
@@ -73,11 +68,6 @@ function validateUser(userObject, userName, userPassword, userId){
                     `
                     userId = newUser.id
             
-            
-            
-                    console.log(userId)
-                    console.log(document.getElementById("hidden-user-id").innerText)
-                    console.log(newUser.password)
                 })
             } else {
                 alert(`Username and/or Password Cannot be Left Blank.`)
