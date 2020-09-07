@@ -185,7 +185,18 @@ function addComment(){
             deleteComment(newComment, e)
         })
 
+        const addReplies = document.createElement('div')
+        addReplies.classList.add("user-comment-replies")
+        addReplies.id = newComment.id
+
+        const h4 = document.createElement('h4')
+        h4.classList.add("replies-count")
+        h4.id = newComment.id
+        h4.innerText = `Replies (0)`
+        addReplies.append(h4)
+
         scrollContainer.append(div)
+        scrollContainer.append(addReplies)
         scrollContainer.append(br)
         div.scrollIntoView()
     })
