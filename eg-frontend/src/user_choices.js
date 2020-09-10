@@ -31,6 +31,7 @@ function createUserChoice(userAnswer, userId, eventId, scenarioId){
 
 function fetchUserChoices(url, eventId){
     const choicesUrl = `http://localhost:3000/api/v1/user_choices/`
+    const scenarioUrl = `http://localhost:3000/api/v1/scenarios/${eventId}`
     const eventUserId = document.getElementById('hidden-user-id').innerText
     const selectUserId = parseInt(eventUserId, 10)
 
@@ -57,6 +58,20 @@ function fetchUserChoices(url, eventId){
                 const adjustScenarioUrl = `http://localhost:3000/api/v1/scenarios/${eventId}`
                 scenarioContainer.innerHTML = ``
                 fetchScenario(adjustScenarioUrl, eventId, specificEvent);
+            })
+
+            fetch(scenarioUrl)
+            .then(response => response.json())
+            .then(scenario => {
+
+                const optionOne = scenario.answer_one
+                const optionTwo = scenario.answer_two
+
+                console.log(optionOne)
+                console.log(optionTwo)
+
+                choiceBreakdown(optionOne, optionTwo)
+
             })
 
         } else {
@@ -97,18 +112,31 @@ function choiceBreakdown(userChoiceOne, userChoiceTwo){
 
             const choiceOne = data.filter(x => x.user_input === userChoiceOne)
             const choiceTwo = data.filter(x => x.user_input === userChoiceTwo)
+
+            console.log(choiceOne)
+            console.log(choiceTwo)
+
             const totalChoices = (choiceOne.length) + (choiceTwo.length)
+            const div = document.createElement('div')
             const h3 = document.createElement('h3')
             const p = document.createElement('p')
+            const space = document.createElement('p')
             p.classList.add("info-text")
+            div.classList.add("choices-box")
+            space.classList.add("info-text")
             const choiceOnePer = (choiceOne.length/totalChoices) * 100
             const choiceTwoPer = (choiceTwo.length/totalChoices) * 100
 
             h3.innerText = `All User Choice Results:`
             p.innerText = `Choice 1: ${choiceOnePer}%   |   Choice 2: ${choiceTwoPer}%`
-            scenarioContainer.append(h3)
-            scenarioContainer.append(p)
+
+            div.append(h3)
+            div.append(p)
+
+            scenarioContainer.append(div)
+            scenarioContainer.append(space)
        
+            console.log(totalChoices)
             console.log(choiceOne.length)
             console.log(choiceTwo.length)
             console.log(totalChoices)

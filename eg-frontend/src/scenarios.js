@@ -3,10 +3,14 @@ function fetchScenario(markerUrl, eventId, userChoice){
     .then(response => response.json())
     .then(data => {
         const scenarioContainer = document.querySelector("#scenario-container")
+        const p = document.createElement('p')
         const historicalP = document.createElement('p')
         const notHistoricalP = document.createElement('p')
+
         historicalP.classList.add("historical")
         notHistoricalP.classList.add("not-historical")
+        p.classList.add("info-text")
+
         const scenarioId = data.id
         const scenario_desc = data.description
         const option_one = data.option_one
@@ -40,7 +44,7 @@ function fetchScenario(markerUrl, eventId, userChoice){
                 scenarioContainer.innerHTML = `
                     <h2>Your Battle Decision Result: </h2>
                     <p id="answer-one" class="info-text">${answer_one}</p>
-                `
+                    `
                 if (data.historical_one === "Yes"){
                     historicalP.innerText = `You Chose History!`
                     scenarioContainer.append(historicalP)
@@ -49,32 +53,35 @@ function fetchScenario(markerUrl, eventId, userChoice){
                     scenarioContainer.append(notHistoricalP)
                 }
 
-                choiceBreakdown(answer_one, answer_two)
                 if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_one);
                 } else {
                     createUserChoice(answer_one, returnUserId, returnEventId, scenarioId);
                 }
 
+                choiceBreakdown(answer_one, answer_two)
             } else if (document.getElementById('radio2').checked){
 
                 scenarioContainer.innerHTML = `
-                <h2>Your Battle Decision Result: </h2>
-                <p id="answer-two" class="info-text">${answer_two}</p>
-            `
-            if (data.historical_two === "Yes"){
-                historicalP.innerText = `You Chose History!`
-                scenarioContainer.append(historicalP)
-            } else {
-                notHistoricalP.innerText = `You Chose Alternative History!`
-                scenarioContainer.append(notHistoricalP)
-            }
-                choiceBreakdown(answer_one, answer_two)
+                    <h2>Your Battle Decision Result: </h2>
+                    <p id="answer-two" class="info-text">${answer_two}</p>
+                `
+                if (data.historical_two === "Yes"){
+                    historicalP.innerText = `You Chose History!`
+                    scenarioContainer.append(historicalP)
+                } else {
+                    notHistoricalP.innerText = `You Chose Alternative History!`
+                    scenarioContainer.append(notHistoricalP)
+                }
+
+
                 if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_two);
                 } else {
                     createUserChoice(answer_two, returnUserId, returnEventId, scenarioId);
                 }
+
+                choiceBreakdown(answer_one, answer_two)
             }
         })
     });

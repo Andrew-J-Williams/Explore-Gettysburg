@@ -594,9 +594,21 @@ input[type="radio"]:checked {
 .historical {
     color: green;
     font-weight: bold;
+    padding-bottom: 25px;
 }
 
 .not-historical {
     color: red;
     font-weight: bold;
+    padding-bottom: 25px;
+}
+
+.choices-box{
+    border-style: solid;
+    width: auto;
+    position: relative;
+    margin: 25px;
+    box-shadow: 1px 1px 3px gray;
+    border-width: 1px;
+    background-color: linen;
 }

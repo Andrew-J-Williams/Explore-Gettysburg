@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', e => {
         fetchEvent(eventUrl, numValue);
         if (userStatus == true){
             fetchUserChoices(scenarioUrl,numValue);
-            fetchComments(commentUrl, numValue, userId);
+            fetchComments(commentUrl, numValue);
         } else {
             fetchLoginReminder()
         }
