@@ -45,7 +45,7 @@
             hidden.id = "hidden-event-id"
 
             name.innerText = `${data.name}`
-            date.innerText = `${data.date}`
+            date.innerText = `Date: `
             dateP.innerText = `${data.date}`
             dateP.style = "italic"
             unionGeneral.innerText = `Union General: `
