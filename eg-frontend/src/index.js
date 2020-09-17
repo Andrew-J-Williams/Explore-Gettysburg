@@ -121,16 +121,43 @@ window.addEventListener('DOMContentLoaded', e => {
         innerDiv.classList.add("inner-box")
 
         logInContainer.append(innerDiv)
-        innerDiv.innerHTML = `
-        <h3><i>Create or Enter an Existing Account</i></h3>
-            <label><b>Username: </b></label>
-            <input type="text" id="user-name-spot" class="user-name-spot"/>
-            <br><br>
-            <label><b>Password: </b></label>
-            <input type="password" id="password-spot" class="password-spot"/>
-            <br><br>
-            <button id="log-in-button" class="log-in-button">Log In</button>
-        `
+
+        const labelName = document.createElement('label')
+        const labelPassword = document.createElement('label')
+        const inputName = document.createElement('input')
+        const inputPassword = document.createElement('input')
+        const h3 = document.createElement('h3')
+        const br = document.createElement('br')
+        const button = document.createElement('button')
+
+        labelName.classList.add('login-label')
+        labelPassword.classList.add('login-label')
+        inputName.classList.add("user-name-spot")
+        inputName.id = "user-name-spot"
+        inputName.type = "text"
+        inputPassword.classList.add("password-spot")
+        inputPassword.id = "password-spot"
+        inputPassword.type = "password"
+        h3.classList.add("create-or-enter")
+        button.classList.add("log-in-button")
+        button.id = "log-in-button"
+
+        h3.innerText = "Create or Enter an Existing Account"
+        labelName.innerText = "Username: "
+        labelPassword.innerText = "Password: "
+        button.innerText = "Log In"
+
+        innerDiv.append(h3)
+        innerDiv.append(labelName)
+        innerDiv.append(inputName)
+        innerDiv.append(br)
+        innerDiv.append(br.cloneNode())
+        innerDiv.append(labelPassword)
+        innerDiv.append(inputPassword)
+        innerDiv.append(br.cloneNode())
+        innerDiv.append(br.cloneNode())
+        innerDiv.append(button)
+
         const logInButton = document.querySelector('#log-in-button')
 
         logInButton.addEventListener('click', e => {

@@ -612,3 +612,13 @@ input[type="radio"]:checked {
     border-width: 1px;
     background-color: linen;
 }
+
+.login-label{
+    clear: both;
+    font-style: bold;
+}
+
+.create-or-enter{
+    clear: both;
+    font-style: italic;
+}
