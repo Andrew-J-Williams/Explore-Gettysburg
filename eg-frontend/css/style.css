@@ -622,3 +622,8 @@ input[type="radio"]:checked {
     clear: both;
     font-style: italic;
 }
+
+.welcome-header{
+    font-style: italic;
+    font-style: bold;
+}

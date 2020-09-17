@@ -14,43 +14,56 @@ window.addEventListener('DOMContentLoaded', e => {
     let userStatus = false;
     let userId;
 
-
-
     displayWelcome();
+    
     
     function displayWelcome(){
         clearContainers();
         const infoContainer = document.querySelector("#info-container");
+        const h2 = document.createElement('h2')
+        const p1 = document.createElement('p')
+        const p2 = document.createElement('p')
+        const p3 = document.createElement('p')
+        const p4 = document.createElement('p')
+        const red = document.createElement('p')
+        const green = document.createElement('p')
+        const blue = document.createElement('p')
 
-        infoContainer.innerHTML = `
-        <h2><b><i>Welcome to Explore Gettysburg!</i></b></h2>
-        <p class="info-text">
-            The Battle of Gettysburg was a significant Union victory considered by many historians to be the turning point of the Civil War.
-            It was also the bloodiest battle fought on American soil with almost 51,000 casualties.
-            Understanding the many events that led to these outcomes paints a greater picture of how extensive this engagement really was.
-        </p>
+        h2.classList.add('welcome-header')
+        p1.classList.add('info-text')
+        p2.classList.add('info-text')
+        p3.classList.add('info-text')
+        p4.classList.add('info-text')
+        red.classList.add('marker-text')
+        green.classList.add('marker-text')
+        blue.classList.add('marker-text')
 
-        <p class="info-text">
-            To set the stage, it is the Summer of 1863 and General Robert E. Lee, commander of the Confederate army, has invaded Northern soil in an attempt to force the Union to negotiate peace.
-            On the other side, the recently promoted Union commander General George G. Meade is in hot pursuit of Lee's 70,000 man army with his own 100,000 men.
-            These two armies will track each other until coming head-to-head at the literal crossroads of a small, Pennsylvanian town known as Gettysburg.
-        </p>
+        red.style = "color:#cc0202;"
+        green.style = "color:#336733;"
+        blue.style = "color:#0a2e52;"
 
-        <p class="info-text">
-            On the map, you will find numerous colored markers that represent significant moments in the battle.
-            Since the battle took place over 3 days, the markers are colored as follows:
-        </p>
+        h2.innerText = `Welcome to Explore Gettysburg!`
 
-        <p class="marker-text" style="color:#cc0202;"><b>Red = First Day (July 1st, 1863)</b></p>
-        <p class="marker-text" style="color:#336733;"><b>Green = Second Day (July 2nd, 1863)</b></p>
-        <p class="marker-text" style="color:#0a2e52;"><b>Blue = Third Day (July 3rd, 1863)</b></p>
+        p1.innerText = `The Battle of Gettysburg was a significant Union victory considered by many historians to be the turning point of the Civil War. It was also the bloodiest battle fought on American soil with almost 51,000 casualties. Understanding the many events that led to these outcomes paints a greater picture of how extensive this engagement really was.`
 
-        <p class="info-text">
-            Once you click on a marker, you can learn about the event, explore an alternative history to the event, or leave a comment for further discussion.
-            Have fun learning!
-        </p>
+        p2.innerText = `To set the stage, it is the Summer of 1863 and General Robert E. Lee, commander of the Confederate army, has invaded Northern soil in an attempt to force the Union to negotiate peace. On the other side, the recently promoted Union commander General George G. Meade is in hot pursuit of Lee's 70,000 man army with his own 100,000 men. These two armies will track each other until coming head-to-head at the literal crossroads of a small, Pennsylvanian town known as Gettysburg.`
 
-    `
+        p3.innerText = `On the map, you will find numerous colored markers that represent significant moments in the battle. Since the battle took place over 3 days, the markers are colored as follows:`
+
+        p4.innerText = `Once you click on a marker, you can learn about the event, explore an alternative history to the event, or leave a comment for further discussion. Have fun learning!`
+
+        red.innerText = `First Day (July 1st, 1863)`
+        green.innerText = `Second Day (July 2nd, 1863)`
+        blue.innerText = `Third Day (July 3rd, 1863)`
+
+        infoContainer.append(h2)
+        infoContainer.append(p1)
+        infoContainer.append(p2)
+        infoContainer.append(p3)
+        infoContainer.append(red)
+        infoContainer.append(green)
+        infoContainer.append(blue)
+        infoContainer.append(p4)
 
     if (userStatus == true) {
         assignMarkers(markersArray);

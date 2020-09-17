@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.marker-text{
+    font-style: bold;
+}
+
 .markers img{
     max-width: 50px;
     max-height: 50px;
