@@ -1,4 +1,4 @@
-    function fetchEvent(markerUrl, eventValue){
+    function fetchEvent(markerUrl){
         fetch(markerUrl)
         .then(response => response.json())
         .then(data => {

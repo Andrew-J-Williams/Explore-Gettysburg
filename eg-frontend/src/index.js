@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', e => {
     let userId;
 
     displayWelcome();
-    
+
     
     function displayWelcome(){
         clearContainers();
@@ -65,12 +65,12 @@ window.addEventListener('DOMContentLoaded', e => {
         infoContainer.append(blue)
         infoContainer.append(p4)
 
-    if (userStatus == true) {
-        assignMarkers(markersArray);
-    } else {
-        assignMarkers(markersArray);
-        logInArea();
-    }
+        if (userStatus == true) {
+            assignMarkers(markersArray);
+        } else {
+            assignMarkers(markersArray);
+            logInArea();
+        }
     
     }
 
@@ -87,7 +87,8 @@ window.addEventListener('DOMContentLoaded', e => {
         const commentUrl = `http://localhost:3000/api/v1/comments/`
 
         clearContainers();
-        fetchEvent(eventUrl, numValue);
+        fetchEvent(eventUrl);
+
         if (userStatus == true){
             fetchUserChoices(scenarioUrl,numValue);
             fetchComments(commentUrl, numValue);
@@ -171,9 +172,7 @@ window.addEventListener('DOMContentLoaded', e => {
         innerDiv.append(br.cloneNode())
         innerDiv.append(button)
 
-        const logInButton = document.querySelector('#log-in-button')
-
-        logInButton.addEventListener('click', e => {
+        button.addEventListener('click', e => {
             e.preventDefault()
             createUser(userId)
             userStatus = true;
