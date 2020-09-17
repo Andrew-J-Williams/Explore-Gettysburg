@@ -1,11 +1,11 @@
-class Comment {
+/* class Comment {
     constructor(data){
         this.title = data.title
         this.content = data.content
         this.event_id = data.event_id
         this.user_id = data.user_id
     }
-}
+} */ 
 
 function fetchComments(markerUrl, eventId){
     fetch(markerUrl)
@@ -103,10 +103,6 @@ function fetchComments(markerUrl, eventId){
                     scrollSection.append(br)
                     scrollSection.append(commentReplies)
                     fetchReplies(eventId, comment.id, addUserId);
-                } else {
-                    scrollSection.innerHTML = `
-                        <h2 class="no-comment">No Comments</h2>
-                    `
                 }
             })
 

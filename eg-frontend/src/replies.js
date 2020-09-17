@@ -1,4 +1,4 @@
-class Reply {
+/* class Reply {
     constructor(data){
         this.title = data.title
         this.content = data.content
@@ -7,7 +7,7 @@ class Reply {
         this.user_id = data.user_id
         this.comment_id = data.comment_id
     }
-}
+} */
 
 function fetchReplies(eventId, commentId, userId){
     const replyUrl = `http://localhost:3000/api/v1/replies/`
@@ -199,7 +199,7 @@ function createReply(commentName, commentId){
     const addUserId = parseInt(currentUserId, 10)
 
 
-    const reply = {
+    const reply = { // Literal constructor
         title: commentTitle,
         content: document.getElementById('reply-box').value,
         comment_name: commentName,

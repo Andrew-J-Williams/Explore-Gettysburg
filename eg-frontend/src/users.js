@@ -1,9 +1,9 @@
-class User{
+/* class User{
     constructor(data){
         this.username = data.username
         this.password = data.password
     }
-}
+} */
 
 function createUser(userId){
     const user = {

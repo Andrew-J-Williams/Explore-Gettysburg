@@ -55,11 +55,12 @@ function fetchScenario(markerUrl, eventId, userChoice){
 
                 if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_one);
+                    choiceBreakdown(answer_one, answer_two);
                 } else {
                     createUserChoice(answer_one, returnUserId, returnEventId, scenarioId);
                 }
 
-                choiceBreakdown(answer_one, answer_two)
+                //choiceBreakdown(answer_one, answer_two)
             } else if (document.getElementById('radio2').checked){
 
                 scenarioContainer.innerHTML = `
@@ -77,11 +78,12 @@ function fetchScenario(markerUrl, eventId, userChoice){
 
                 if (userChoice && userChoice.user_id === returnUserId && userChoice.event_id === returnEventId){
                     editUserChoice(userChoice.id, answer_two);
+                    choiceBreakdown(answer_one, answer_two);
                 } else {
                     createUserChoice(answer_two, returnUserId, returnEventId, scenarioId);
                 }
 
-                choiceBreakdown(answer_one, answer_two)
+                //choiceBreakdown(answer_one, answer_two)
             }
         })
     });
