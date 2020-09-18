@@ -1,16 +1,7 @@
-/* class UserChoice{
-    constructor(data){
-        this.user_input = data.user_input
-        this.user_id = data.user_id
-        this.event_id = data.event_id
-        this.scenario_id = data.scenario_id
-    }
-} */
-
 function createUserChoice(userAnswer, userId, eventId, scenarioId){
     const choicesUrl = `http://localhost:3000/api/v1/user_choices/`
 
-    const choice = {
+    const choice = { // Literal constructor
        user_input: userAnswer,
        user_id: userId,
        event_id: eventId,

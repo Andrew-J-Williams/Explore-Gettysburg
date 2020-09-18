@@ -1,14 +1,3 @@
-/* class Reply {
-    constructor(data){
-        this.title = data.title
-        this.content = data.content
-        this.comment_name = data.comment_name
-        this.event_id = data.event_id
-        this.user_id = data.user_id
-        this.comment_id = data.comment_id
-    }
-} */
-
 function fetchReplies(eventId, commentId, userId){
     const replyUrl = `http://localhost:3000/api/v1/replies/`
     

@@ -1,11 +1,88 @@
-/* class Comment {
+class Comment {
     constructor(data){
-        this.title = data.title
-        this.content = data.content
-        this.event_id = data.event_id
+        this.id = data.id,
+        this.title = data.title,
+        this.content = data.content,
+        this.event_id = data.event_id,
         this.user_id = data.user_id
     }
-} */ 
+    
+    renderCommentContent() {
+       return `
+            <h4 class="comment-title">${this.title}</h4>
+            <p>${this.content}</p>
+        `
+    }
+}
+
+
+ function addComment(){
+        const grabCommentUrl = `http://localhost:3000/api/v1/comments/`
+    
+        const usersName = document.querySelector('#welcome-user').innerText
+        const currentEventId = document.getElementById("hidden-event-id").innerText
+        const currentUserId = document.getElementById("hidden-user-id").innerText
+        const commentTitle = usersName.toString().substr(9)
+        const addEventId = parseInt(currentEventId, 10)
+        const addUserId = parseInt(currentUserId, 10)
+    
+        console.log(addEventId)
+        console.log(addUserId)
+    
+        const comment = {
+            title: commentTitle,
+            content: document.getElementById('comment-box').value,
+            event_id: addEventId,
+            user_id: addUserId
+        }
+
+        fetch(grabCommentUrl, {
+            method: "POST",
+            body: JSON.stringify(comment),
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+        })
+        .then(resp => resp.json())
+        .then(newComment => {
+            const newUserComment = new Comment(newComment)
+            console.log(newUserComment)
+    
+            let div = document.createElement('div')
+            let br = document.createElement('br')
+            let scrollContainer = document.getElementById('scroll-container')
+            div.classList.add("user-comment")
+            div.id = newUserComment.id
+    
+            div.innerHTML = newUserComment.renderCommentContent()
+
+            let img = document.createElement('img')
+            img.classList.add('comment-x')
+            img.id = 'comment-x'
+            img.src = 'https://i.imgur.com/dbzNiXR.png'
+            div.append(img)
+    
+            img.addEventListener('click', e => {
+                e.preventDefault()
+                console.log(newUserComment)
+                deleteComment(newUserComment, e)
+            })
+    
+            const addReplies = document.createElement('div')
+            addReplies.classList.add("user-comment-replies")
+            addReplies.id = newUserComment.id
+    
+            const h4 = document.createElement('h4')
+            h4.classList.add("replies-count")
+            h4.id = newUserComment.id
+            h4.innerText = `Replies (0)`
+            addReplies.append(h4)
+    
+            scrollContainer.append(div)
+            scrollContainer.append(addReplies)
+            scrollContainer.append(br)
+            div.scrollIntoView()
+        })
+}
+
 
 function fetchComments(markerUrl, eventId){
     fetch(markerUrl)
@@ -127,76 +204,6 @@ function fetchComments(markerUrl, eventId){
         });
 
         
-}
-
-function addComment(){
-    const grabCommentUrl = `http://localhost:3000/api/v1/comments/`
-
-    const usersName = document.querySelector('#welcome-user').innerText
-    const currentEventId = document.getElementById("hidden-event-id").innerText
-    const currentUserId = document.getElementById("hidden-user-id").innerText
-    const commentTitle = usersName.toString().substr(9)
-    const addEventId = parseInt(currentEventId, 10)
-    const addUserId = parseInt(currentUserId, 10)
-
-    console.log(addEventId)
-    console.log(addUserId)
-
-    const comment = {
-        title: commentTitle,
-        content: document.getElementById('comment-box').value,
-        event_id: addEventId,
-        user_id: addUserId
-    }
-
-
-    fetch(grabCommentUrl, {
-        method: "POST",
-        body: JSON.stringify(comment),
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
-    })
-    .then(resp => resp.json())
-    .then(newComment => {
-        console.log(newComment)
-
-        let div = document.createElement('div')
-        let br = document.createElement('br')
-        let scrollContainer = document.getElementById('scroll-container')
-        div.classList.add("user-comment")
-        div.id = newComment.id
-
-        div.innerHTML = `
-            <h4 class="comment-title">${newComment.title}</h4>
-            <p>${newComment.content}</p>
-        `
-        let img = document.createElement('img')
-        img.classList.add('comment-x')
-        img.id = 'comment-x'
-        img.src = 'https://i.imgur.com/dbzNiXR.png'
-        div.append(img)
-
-        img.addEventListener('click', e => {
-            e.preventDefault()
-            console.log(newComment)
-            deleteComment(newComment, e)
-        })
-
-        const addReplies = document.createElement('div')
-        addReplies.classList.add("user-comment-replies")
-        addReplies.id = newComment.id
-
-        const h4 = document.createElement('h4')
-        h4.classList.add("replies-count")
-        h4.id = newComment.id
-        h4.innerText = `Replies (0)`
-        addReplies.append(h4)
-
-        scrollContainer.append(div)
-        scrollContainer.append(addReplies)
-        scrollContainer.append(br)
-        div.scrollIntoView()
-    })
-
 }
 
 function deleteComment(comment, event){
