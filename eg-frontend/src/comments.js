@@ -13,10 +13,17 @@ class Comment {
             <p>${this.content}</p>
         `
     }
+
+    renderTitle(){
+        return `${this.title}`
+    }
+
+    renderContent(){
+        return `${this.content}`
+    }
 }
 
-
- function addComment(){
+function addComment(){
         const grabCommentUrl = `http://localhost:3000/api/v1/comments/`
     
         const usersName = document.querySelector('#welcome-user').innerText
@@ -105,12 +112,15 @@ function fetchComments(markerUrl, eventId){
             h3.innerText = `Join the Discussion!`
             commentHeader.classList.add("comment-header")
 
+
             commentHeader.append(h3)
             commentContainer.append(commentHeader)
             commentContainer.append(scrollSection)
             commentContainer.append(newComment)
 
             data.forEach(comment => {
+                const newUserComment = new Comment(comment)
+
                 let div = document.createElement('div')
                 let divUser = document.createElement('div')
                 let br = document.createElement('br')
@@ -119,15 +129,15 @@ function fetchComments(markerUrl, eventId){
                 div.classList.add("individual-comment")
                 h4.classList.add("comment-title")
                 divUser.classList.add("user-comment")
-                let commentId = comment.id
+                let commentId = newUserComment.id
                 div.id = commentId
                 divUser.id = commentId
 
 
-                if (comment.event_id === eventId && addUserId === comment.user_id){
+                if (newUserComment.event_id === eventId && addUserId === newUserComment.user_id){
     
-                    h4.innerText = `${comment.title}`
-                    p.innerText = `${comment.content}`
+                    h4.innerText = newUserComment.renderTitle()
+                    p.innerText = newUserComment.renderContent()
 
                     divUser.append(h4)
                     divUser.append(p)
@@ -140,46 +150,46 @@ function fetchComments(markerUrl, eventId){
 
                     img.addEventListener('click', e => {
                         e.preventDefault()
-                        console.log(comment)
-                        deleteComment(comment, e)
+                        console.log(newUserComment)
+                        deleteComment(newUserComment, e)
                     })
 
                     const userReplies = document.createElement('div')
                     userReplies.classList.add("user-comment-replies")
-                    userReplies.id = comment.id
+                    userReplies.id = newUserComment.id
 
                     scrollSection.append(br)
                     scrollSection.append(divUser)
                     scrollSection.append(br)
                     scrollSection.append(userReplies)
-                    fetchReplies(eventId, comment.id, addUserId)
-                } else if (comment.event_id === eventId && addUserId != comment.user_id){
-                    h4.innerText = `${comment.title}`
-                    p.innerText = `${comment.content}`
+                    fetchReplies(eventId, newUserComment.id, addUserId)
+                } else if (newUserComment.event_id === eventId && addUserId != newUserComment.user_id){
+                    h4.innerText = newUserComment.renderTitle()
+                    p.innerText = newUserComment.renderContent()
 
                     div.append(h4)
                     div.append(p)
 
                     let btn = document.createElement('button')
                     btn.classList.add("reply-button")
-                    btn.id = comment.id
+                    btn.id = newUserComment.id
                     btn.innerText = `Reply`
                     div.append(btn)
 
                     btn.addEventListener('click', e => {
                         e.preventDefault();
-                        prepareReply(comment.title, comment.id);
+                        prepareReply(newUserComment.title, newUserComment.id);
                     })
 
                     const commentReplies = document.createElement('div')
                     commentReplies.classList.add("individual-comment-replies")
-                    commentReplies.id = comment.id
+                    commentReplies.id = newUserComment.id
                     
                     scrollSection.append(br)
                     scrollSection.append(div)
                     scrollSection.append(br)
                     scrollSection.append(commentReplies)
-                    fetchReplies(eventId, comment.id, addUserId);
+                    fetchReplies(eventId, newUserComment.id, addUserId);
                 }
             })
 
