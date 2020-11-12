@@ -1,6 +1,6 @@
 # Explore Gettysburg
 
-Welcome to Explore Gettysburg! This single page application is designed to be a tool for learning, critical thinking, and open discussion between historians young and old. You can read about different events fronm the battle, step into the shoes of historical figures to make crucial judgment calls, and share additional information and thoughts through comment sections. Once you've created your account, you can gain a greater understanding of one of the most pivotal military engagements in American history!
+Welcome to Explore Gettysburg! This single page application is designed to be a tool for learning, critical thinking, and open discussion between historians young and old. You can read about different events from the battle, step into the shoes of historical figures to make crucial judgment calls, and share additional information and thoughts through comment sections. Once you've created your account, you can gain a greater understanding of one of the most pivotal military engagements in American history!
 
 ## Installation
 
